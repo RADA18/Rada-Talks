@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Rada Talks | Real Conversations. Meaningful Growth. Lasting Impact.</title>
+  <meta name="description" content="Rada Talks with Radaba Polo: meaningful conversations and practical guidance on leadership, personal growth, careers and financial confidence.">
+  <meta name="theme-color" content="#080808">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Rada Talks">
+  <meta property="og:description" content="Real Conversations. Meaningful Growth. Lasting Impact.">
+  <meta property="og:image" content="hero-rada.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <style>
+    :root{--black:#070707;--panel:#111;--gold:#d5ae43;--light:#f4d77e;--cream:#f5f0e5;--muted:#b7b0a5;--line:rgba(213,174,67,.25);--max:1180px}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:82px}body{margin:0;overflow-x:hidden;background:var(--black);color:var(--cream);font-family:Inter,Segoe UI,Arial,sans-serif;line-height:1.7}body.open{overflow:hidden}
+    img{display:block;max-width:100%}a{color:inherit;text-decoration:none}button{font:inherit}:focus-visible{outline:2px solid var(--light);outline-offset:4px}
+    .skip{position:fixed;top:-80px;left:1rem;z-index:9999;padding:.7rem 1rem;background:var(--gold);color:#000}.skip:focus{top:1rem}
+    .container{width:min(calc(100% - 2.2rem),var(--max));margin:auto}.section{padding:7rem 0}.dark{background:#0d0d0d}
+    h1,h2,h3{margin:0;font-family:Georgia,serif;font-weight:500;line-height:1.1}h1{font-size:clamp(3.5rem,7.3vw,7rem);letter-spacing:-.065em}h2{font-size:clamp(2.4rem,5vw,4.5rem);letter-spacing:-.045em}h3{font-size:1.55rem}.gold{color:var(--light)}
+    .eyebrow{display:flex;align-items:center;gap:.7rem;margin-bottom:1rem;color:var(--light);font-size:.76rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase}.eyebrow:before{width:34px;height:1px;background:var(--gold);content:""}
+    .heading{max-width:720px;margin:0 auto 3rem;text-align:center}.heading .eyebrow{justify-content:center}.heading p{color:var(--muted);font-size:1.05rem}
+    .btn{display:inline-flex;min-height:52px;align-items:center;justify-content:center;padding:.85rem 1.35rem;border:1px solid var(--gold);border-radius:99px;font-size:.88rem;font-weight:800;transition:.25s}.btn:hover{transform:translateY(-3px)}.primary{background:linear-gradient(135deg,var(--light),var(--gold),#99731c);color:#090909;box-shadow:0 12px 35px rgba(213,174,67,.2)}.outline:hover{background:var(--gold);color:#000}
+    header{position:fixed;inset:0 0 auto;z-index:1000;border-bottom:1px solid transparent;transition:.3s}header.scrolled{border-color:var(--line);background:rgba(7,7,7,.93);backdrop-filter:blur(16px)}.nav{display:flex;min-height:82px;align-items:center;justify-content:space-between;gap:1rem}
+    .brand{display:flex;align-items:center;gap:.8rem;font-family:Georgia,serif;font-size:1.3rem}.brand img{width:54px;height:42px;border-radius:4px;object-fit:cover}.brand span{color:var(--gold)}
+    nav ul{display:flex;align-items:center;gap:1.25rem;margin:0;padding:0;list-style:none}nav a:not(.btn){font-size:.82rem;font-weight:700}nav .btn{min-height:43px;padding:.6rem 1rem}.menu{display:none;width:44px;height:44px;border:1px solid var(--line);border-radius:50%;background:none;color:#fff}.menu span{display:block;width:19px;height:1px;margin:5px auto;background:currentColor}
+    .hero{position:relative;display:grid;min-height:100vh;align-items:center;padding:9rem 0 5rem;background:radial-gradient(circle at 15% 15%,rgba(213,174,67,.1),transparent 30rem)}.hero-grid{display:grid;align-items:center;gap:4rem;grid-template-columns:1.08fr .92fr}.hero h1 span{display:block}.hero-copy>p{max-width:650px;color:var(--muted);font-size:1.08rem}.roles{color:var(--light);font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
+    .hero-photo{position:relative;overflow:hidden;height:620px;border:1px solid var(--line);border-radius:230px 230px 24px 24px;background:#151515;box-shadow:0 30px 70px #000}.hero-photo:after{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.75),transparent 40%);content:""}.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:52% 28%}.photo-caption{position:absolute;z-index:2;right:2rem;bottom:2rem;left:2rem}.photo-caption strong{display:block;font-family:Georgia,serif;font-size:1.5rem}.photo-caption small{color:var(--light);letter-spacing:.1em;text-transform:uppercase}
+    .stats{border-block:1px solid var(--line);background:#0c0c0c}.stats-grid{display:grid;grid-template-columns:repeat(4,1fr)}.stat{padding:2.6rem 1rem;text-align:center}.stat+ .stat{border-left:1px solid var(--line)}.stat b{display:block;color:var(--light);font-family:Georgia,serif;font-size:3rem;font-weight:500;line-height:1}.stat small{color:var(--muted);font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+    .chips{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;margin-bottom:2rem}.chips span{padding:.45rem .8rem;border:1px solid var(--line);border-radius:99px;color:#d8d1c7;font-size:.8rem}
+    .podcast-showcase{display:grid;overflow:hidden;border:1px solid var(--line);border-radius:24px;background:linear-gradient(135deg,#18150d,#0e0e0e 65%);grid-template-columns:1.05fr .95fr}.podcast-visual{position:relative;display:grid;min-height:390px;place-items:center;background:radial-gradient(circle,rgba(213,174,67,.17),transparent 52%),#131313}.podcast-visual:before{position:absolute;width:250px;height:250px;border:1px solid var(--line);border-radius:50%;content:""}.podcast-visual .play{z-index:1;width:90px;height:90px;background:#090909;font-size:1.3rem}.podcast-copy{display:flex;padding:clamp(2rem,5vw,4rem);justify-content:center;flex-direction:column}.podcast-copy p{color:var(--muted)}.podcast-copy .actions{justify-content:flex-start}
+    .grid3,.grid4{display:grid;gap:1.3rem;grid-template-columns:repeat(3,1fr)}.card{overflow:hidden;border:1px solid var(--line);border-radius:20px;background:var(--panel);transition:.3s}.card:hover{transform:translateY(-7px);border-color:var(--gold)}.thumb{display:grid;height:210px;place-items:center;background:linear-gradient(135deg,rgba(213,174,67,.15),transparent),#171717}.play{display:grid;width:62px;height:62px;place-items:center;border:1px solid var(--gold);border-radius:50%;color:var(--light)}.card-body{padding:1.4rem}.card-body small{color:var(--light);font-weight:800;text-transform:uppercase}.card-body h3{margin-top:.5rem}
+    .about{display:grid;align-items:center;gap:6rem;grid-template-columns:.9fr 1.1fr}.portrait{position:relative;height:570px}.portrait:before{position:absolute;inset:-15px 16px 16px -15px;border:1px solid var(--gold);border-radius:180px 180px 18px 18px;content:""}.portrait img{position:relative;width:100%;height:100%;border-radius:180px 180px 18px 18px;object-fit:cover;object-position:50% 42%}.copy p{color:var(--muted);font-size:1.07rem}.credentials{display:grid;gap:1.5rem;margin:1.7rem 0;grid-template-columns:1fr 1fr}.credentials h3{margin-bottom:.7rem;color:var(--light);font-family:Inter,sans-serif;font-size:.76rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.credentials ul{display:grid;gap:.4rem;margin:0;padding:0;list-style:none}.credentials li{color:#c8c1b6;font-size:.86rem}.credentials li:before{margin-right:.5rem;color:var(--gold);content:"◆";font-size:.5rem}.signature{color:var(--light);font-family:"Brush Script MT",cursive;font-size:2.3rem}
+    .framework{display:grid;gap:2rem}.framework-cards{display:grid;gap:1rem;grid-template-columns:repeat(3,1fr)}.framework-card{position:relative;overflow:hidden;min-height:250px;padding:1.7rem;border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:16px;background:linear-gradient(135deg,#181818,#111)}.framework-card:after{position:absolute;right:-32px;bottom:-48px;color:rgba(213,174,67,.08);font-family:Georgia,serif;font-size:8rem;line-height:1;content:attr(data-number)}.framework-card h3{color:var(--light)}.framework-card p{margin:.45rem 0;color:var(--muted)}.framework-card .pillar-note{margin-top:1.2rem;padding-top:1rem;border-top:1px solid var(--line);color:#d8d1c7;font-size:.9rem}.framework-summary{display:grid;gap:1rem;grid-template-columns:1fr 1fr}.summary-panel{padding:1.6rem;border:1px solid var(--line);border-radius:18px;background:radial-gradient(circle at 90% 15%,rgba(213,174,67,.11),transparent 18rem),#101010}.summary-panel h3,.framework-explorer h3{margin-bottom:.7rem;color:var(--light)}.summary-panel p{margin:.3rem 0;color:var(--muted)}.timeline{display:grid;gap:.8rem}.timeline-step{position:relative;padding-left:2.2rem;color:#d8d1c7}.timeline-step:before{position:absolute;left:0;top:.15rem;display:grid;width:1.45rem;height:1.45rem;place-items:center;border:1px solid var(--gold);border-radius:50%;color:var(--light);font-size:.72rem;font-weight:900;content:attr(data-step)}.framework-explorer{padding:1.7rem;border:1px solid var(--line);border-radius:18px;background:#0f0f0f}.accordion{display:grid;gap:.7rem}.accordion details{border:1px solid var(--line);border-radius:14px;background:#151515}.accordion summary{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 1.2rem;color:var(--cream);font-weight:800;cursor:pointer}.accordion summary::-webkit-details-marker{display:none}.accordion summary:after{color:var(--gold);content:"+";font-size:1.35rem}.accordion details[open] summary:after{content:"–"}.accordion-content{display:grid;gap:1rem;padding:0 1.2rem 1.2rem;color:var(--muted);grid-template-columns:1fr 1fr}.accordion-content ul,.accordion-content ol{display:grid;gap:.45rem;margin:0;padding-left:1.1rem;color:#ddd6ca}.life-stages{display:grid;gap:.65rem;grid-template-columns:repeat(4,1fr)}.stage{padding:1rem;border:1px solid var(--line);border-radius:12px;background:#151515;text-align:center}.stage b{display:block;color:var(--light)}.stage small{color:var(--muted)}.framework-disclaimer{padding:1rem;border-left:2px solid var(--gold);color:#918a80;font-size:.78rem}
+    .grid4{grid-template-columns:repeat(4,1fr)}.service{padding:2rem;min-height:270px}.icon{display:grid;width:55px;height:55px;margin-bottom:2rem;place-items:center;border:1px solid var(--gold);border-radius:50%;color:var(--light);font-size:1.4rem}.service p{color:var(--muted)}
+    .speaking-grid{display:grid;align-items:center;gap:4rem;grid-template-columns:1fr 1fr}.topics{display:grid;gap:.7rem;grid-template-columns:1fr 1fr}.topic{padding:1.15rem;border:1px solid var(--line);border-radius:14px;background:#111}.topic b{margin-right:.7rem;color:var(--gold)}
+    .cta{padding:6rem 0}.cta-box{padding:5rem 2rem;border:1px solid var(--gold);border-radius:28px;background:radial-gradient(circle at 90% 15%,rgba(244,215,126,.16),transparent 24rem),#100e09;text-align:center}.cta-box h2{margin:auto}.cta-box p{color:var(--muted);font-size:1.1rem}
+    .form-modal{position:fixed;inset:0;z-index:2000;display:none;overflow:auto;padding:1.2rem;background:rgba(0,0,0,.82);backdrop-filter:blur(10px)}.form-modal.active{display:grid;place-items:center}.form-shell{position:relative;width:min(100%,760px);margin:auto;padding:clamp(1.4rem,4vw,2.6rem);border:1px solid var(--gold);border-radius:24px;background:#0d0d0d;box-shadow:0 30px 90px #000}.form-close{position:absolute;top:1rem;right:1rem;display:grid;width:42px;height:42px;place-items:center;border:1px solid var(--line);border-radius:50%;background:#151515;color:#fff;cursor:pointer}.form-shell h2{padding-right:3rem;font-size:clamp(2rem,5vw,3.4rem)}.form-intro{max-width:620px;margin:.8rem 0 1.6rem;color:var(--muted)}.form-grid{display:grid;gap:1rem;grid-template-columns:1fr 1fr}.field{display:grid;gap:.35rem}.field.full{grid-column:1/-1}.field label{font-size:.78rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase}.field input,.field select,.field textarea{width:100%;min-height:50px;padding:.8rem 1rem;border:1px solid var(--line);border-radius:10px;background:#151515;color:#fff;font:inherit}.field textarea{min-height:120px;resize:vertical}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--gold);outline:none}.form-note{margin:.8rem 0 0;color:#8f897f;font-size:.76rem}.form-status{display:none;margin-top:1rem;padding:.8rem 1rem;border:1px solid var(--line);border-radius:10px;color:var(--light)}.form-status.show{display:block}
+    footer{border-top:1px solid var(--line);background:#050505}.footer-grid{display:grid;gap:3rem;padding:5rem 0 3rem;grid-template-columns:1.5fr .8fr 1fr 1fr}.footer-grid h3{margin-bottom:1rem;color:var(--light);font-family:Inter,sans-serif;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase}.footer-grid ul{display:grid;gap:.5rem;margin:0;padding:0;list-style:none}.footer-grid li,.footer-grid p{color:var(--muted);font-size:.9rem}.social{display:flex;gap:.5rem;margin-top:1.3rem}.social a{display:grid;width:40px;height:40px;place-items:center;border:1px solid var(--line);border-radius:50%;font-size:.7rem;font-weight:900}.social a:hover{background:var(--gold);color:#000}.bottom{padding:1.2rem 0;border-top:1px solid #171717;color:#817b72;font-size:.78rem}
+    .reveal{opacity:0;transform:translateY(25px);transition:.7s}.reveal.visible{opacity:1;transform:none}
+    @media(max-width:1060px){.menu{display:block}nav ul{position:fixed;top:82px;right:0;bottom:0;display:flex;width:min(360px,100%);padding:2rem;align-items:stretch;flex-direction:column;background:#080808;transform:translateX(105%);transition:.3s}nav ul.open{transform:none}.grid4{grid-template-columns:1fr 1fr}.footer-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:820px){.section{padding:5rem 0}.hero-grid,.about,.speaking-grid,.podcast-showcase{grid-template-columns:1fr}.hero-copy{text-align:center}.hero-copy .eyebrow,.actions{justify-content:center}.hero-photo{width:min(100%,460px);height:600px;margin:auto}.stats-grid{grid-template-columns:1fr 1fr}.stat:nth-child(3){border-left:0}.stat:nth-child(-n+2){border-bottom:1px solid var(--line)}.grid3,.framework-cards,.framework-summary,.accordion-content{grid-template-columns:1fr}.life-stages{grid-template-columns:1fr 1fr}.card{max-width:600px;margin:auto}.portrait{width:min(100%,480px);margin:auto}.podcast-copy{text-align:center}.podcast-copy .actions{justify-content:center}}
+    @media(max-width:560px){.container{width:min(calc(100% - 1.4rem),var(--max))}.brand img{width:48px;height:37px}.brand{font-size:1.1rem}.hero h1{font-size:clamp(3rem,16vw,4.3rem)}.hero-photo{height:510px}.hero-photo img{object-position:53% 25%}.actions .btn{width:100%}.grid4,.topics,.footer-grid,.form-grid,.credentials{grid-template-columns:1fr}.field.full{grid-column:auto}.stat{padding:2rem .5rem}.stat b{font-size:2.4rem}.stat small{font-size:.65rem}.portrait{height:480px}.framework-card ul{display:grid}.cta-box{padding:4rem 1rem}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header id="header">
+    <div class="container nav">
+      <a class="brand" href="#home"><img src="logo.png" alt="Rada Talks RT logo">Rada <span>Talks</span></a>
+      <button class="menu" aria-expanded="false" aria-controls="navlinks" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav aria-label="Main navigation">
+        <ul id="navlinks">
+          <li><a href="#home">Home</a></li><li><a href="#about">About</a></li><li><a href="#podcast">Podcast</a></li><li><a href="#planning">Financial Planning</a></li><li><a href="#speaking">Speaking</a></li><li><a href="#resources">Resources</a></li><li><a href="#contact">Contact</a></li>
+          <li><a class="btn primary" href="#consultation-form" data-open-form="consultation">Book a Consultation</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <div class="eyebrow">Welcome to Rada Talks</div>
+          <h1><span>Real Conversations.</span><span class="gold">Meaningful Growth.</span><span>Lasting Impact.</span></h1>
+          <p>A resilient woman sharing real stories, leadership lessons, financial insights, and meaningful conversations that inspire growth, confidence, and purpose.</p>
+          <div class="roles">Speaker • Podcaster • Financial Planning Advocate • Operations Leader</div>
+          <div class="actions"><a class="btn primary" href="https://www.youtube.com/@TalksWithRada" target="_blank" rel="noopener">Watch Rada Talks →</a><a class="btn outline" href="#consultation-form" data-open-form="consultation">Book a Free Consultation</a></div>
+        </div>
+        <div class="hero-photo reveal">
+          <img src="hero-rada.jpg" alt="Radaba Polo in a sparkling pink and black gown">
+          <div class="photo-caption"><strong>Radaba Polo</strong><small>Real stories. Practical wisdom. Purposeful growth.</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats"><div class="container stats-grid">
+      <div class="stat"><b>1,000+</b><small>Community Members Reached</small></div><div class="stat"><b>15+</b><small>Years Leadership Experience</small></div><div class="stat"><b>50+</b><small>Podcast Episodes</small></div><div class="stat"><b>3S</b><small>Signature Framework</small></div>
+    </div></section>
+
+    <section class="section dark" id="podcast"><div class="container">
+      <div class="heading reveal"><div class="eyebrow">Listen • Learn • Grow</div><h2>Rada Talks <span class="gold">Podcast</span></h2><p>Real conversations on life, leadership, personal growth, career development, financial literacy, and success stories.</p></div>
+      <div class="chips reveal"><span>Leadership</span><span>Career Growth</span><span>Relationships</span><span>Personal Development</span><span>Financial Literacy</span><span>Success Stories</span></div>
+      <div class="podcast-showcase reveal">
+        <a class="podcast-visual" href="https://www.youtube.com/@TalksWithRada" target="_blank" rel="noopener" aria-label="Visit the Rada Talks YouTube channel"><span class="play">▶</span></a>
+        <div class="podcast-copy">
+          <small class="gold">THE OFFICIAL CHANNEL</small>
+          <h3 style="font-size:clamp(2rem,4vw,3.2rem);margin-top:.55rem">Watch Rada Talks on YouTube</h3>
+          <p>Explore the complete collection of conversations on leadership, careers, relationships, personal development, financial literacy, and inspiring success stories—all in one place.</p>
+          <div class="actions"><a class="btn primary" href="https://www.youtube.com/@TalksWithRada" target="_blank" rel="noopener">Explore All Episodes →</a><a class="btn outline" href="#guest-form" data-open-form="guest">Apply as a Podcast Guest</a></div>
+        </div>
+      </div>
+    </div></section>
+
+    <section class="section" id="about"><div class="container about">
+      <div class="portrait reveal"><img src="about-rada.jpg" alt="Portrait of Radaba Polo wearing a floral dress"></div>
+      <div class="copy reveal">
+        <div class="eyebrow">About Rada</div>
+        <h2>A leader's discipline brought to <span class="gold">your family's future.</span></h2>
+        <p>I spent 15+ years leading operations teams of 500+ people across global companies in BPO, FinTech, SaaS, and HealthTech. I know what it is like to be high-performing and still feel financially uncertain.</p>
+        <p>Today, I combine that operational discipline with a mission to make financial literacy real and accessible for every Filipino—through content, honest conversations, and personalized financial planning.</p>
+        <p>I am also the co-founder of Jun &amp; Rada Studio, a handcrafted home décor business, and the host of Rada Talks—a channel about life, leadership, career, and money.</p>
+        <div class="credentials">
+          <div>
+            <h3>Background</h3>
+            <ul>
+              <li>15+ years in Operations Leadership</li>
+              <li>Led teams of 500+ people</li>
+              <li>BPO, FinTech, SaaS, and HealthTech</li>
+              <li>Lean Six Sigma Black Belt</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Content &amp; Media</h3>
+            <ul>
+              <li>Host—Rada Talks | Real Conversations</li>
+              <li>Leadership, career, life, and financial content</li>
+              <li>Co-founder—Jun &amp; Rada Studio</li>
+              <li>Speaker on leadership and resilience</li>
+            </ul>
+          </div>
+        </div>
+        <div class="signature">Radaba Polo</div>
+      </div>
+    </div></section>
+
+    <section class="section dark" id="planning"><div class="container">
+      <div class="heading reveal"><div class="eyebrow">Financial Confidence</div><h2>The <span class="gold">3S Framework</span></h2><p>A simple yet powerful approach to help you and your family thrive.</p></div>
+      <div class="framework">
+        <div class="framework-cards">
+          <article class="framework-card reveal" data-number="01"><h3>1. Security</h3><p><strong>Protect what matters most.</strong></p><p>Prepare for life’s unexpected turns so your family, income, and goals are protected.</p><div class="pillar-note">Secure today.</div></article>
+          <article class="framework-card reveal" data-number="02"><h3>2. Stability</h3><p><strong>Build and grow your future.</strong></p><p>Create healthier money habits, grow resources, and make confident decisions for tomorrow.</p><div class="pillar-note">Stabilize tomorrow.</div></article>
+          <article class="framework-card reveal" data-number="03"><h3>3. Succession</h3><p><strong>Create a lasting legacy.</strong></p><p>Plan how the wealth, values, and opportunities you build can continue for the next generation.</p><div class="pillar-note">Succeed together.</div></article>
+        </div>
+
+        <div class="framework-summary">
+          <article class="summary-panel reveal">
+            <h3>One plan. Three pillars.</h3>
+            <p>The 3S Framework is not about selling a product. It is a conversation guide that helps you see the full picture: what needs protection, what needs growth, and what needs to be passed on with intention.</p>
+            <p><strong>Security</strong> protects your foundation. <strong>Stability</strong> grows your options. <strong>Succession</strong> gives your work meaning beyond you.</p>
+          </article>
+          <article class="summary-panel reveal">
+            <h3>The two sides of life</h3>
+            <p>A strong financial plan prepares for both sides of life: unexpected events that can happen too soon, and long-term goals that come when you live a full life.</p>
+            <div class="timeline">
+              <div class="timeline-step" data-step="1">Protect against risks like illness, disability, income loss, and premature death.</div>
+              <div class="timeline-step" data-step="2">Prepare for milestones like education, family goals, retirement, and legacy.</div>
+            </div>
+          </article>
+        </div>
+
+        <div class="framework-explorer reveal">
+          <h3>Explore what each pillar can include</h3>
+          <div class="accordion">
+            <details open>
+              <summary>Security: protection for today’s risks</summary>
+              <div class="accordion-content">
+                <p>Security asks: if something unexpected happens, will the people who depend on you still be okay?</p>
+                <ul><li>Life protection</li><li>Health and critical illness protection</li><li>Income protection</li><li>Emergency fund</li><li>Debt protection</li></ul>
+              </div>
+            </details>
+            <details>
+              <summary>Stability: a stronger financial future</summary>
+              <div class="accordion-content">
+                <p>Stability asks: are your daily decisions helping you build choices, peace of mind, and future freedom?</p>
+                <ul><li>Budgeting and cash flow</li><li>Savings discipline</li><li>Education funding</li><li>Investment growth</li><li>Retirement planning</li></ul>
+              </div>
+            </details>
+            <details>
+              <summary>Succession: a legacy that lives on</summary>
+              <div class="accordion-content">
+                <p>Succession asks: how will your wealth, values, and responsibilities be transferred when the time comes?</p>
+                <ul><li>Estate planning</li><li>Wealth transfer</li><li>Inheritance preparation</li><li>Business succession</li><li>Generational wealth</li></ul>
+              </div>
+            </details>
+            <details>
+              <summary>Life stages: plan according to where you are</summary>
+              <div class="accordion-content">
+                <p>Your plan should match your season of life, not someone else’s template.</p>
+                <ol><li><strong>Foundation years:</strong> education, first income, habits, and emergency savings.</li><li><strong>Building years:</strong> career growth, family security, and wealth building.</li><li><strong>Growth years:</strong> investments, retirement planning, debt management, and lifestyle goals.</li><li><strong>Legacy years:</strong> financial freedom, giving, succession, and peace of mind.</li></ol>
+              </div>
+            </details>
+            <details>
+              <summary>Wealth-building roadmap: from income to freedom</summary>
+              <div class="accordion-content">
+                <p>A practical roadmap connects your career, income, savings, investments, and lifestyle choices into one direction.</p>
+                <ul><li>Strengthen your financial foundation.</li><li>Separate needs, wants, savings, and investments.</li><li>Set short-, medium-, and long-term goals.</li><li>Review protection and progress regularly.</li><li>Adjust the plan as life changes.</li></ul>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <p class="framework-disclaimer reveal">This framework is for general financial education. Recommendations should be based on your personal goals, income, responsibilities, risk profile, and circumstances.</p>
+      </div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <div class="heading reveal"><div class="eyebrow">How I Serve</div><h2>What I <span class="gold">Do</span></h2></div>
+      <div class="grid4">
+        <article class="card service reveal"><div class="icon">◉</div><h3>Podcast</h3><p>Honest conversations and remarkable stories that inspire meaningful action.</p></article>
+        <article class="card service reveal"><div class="icon">↗</div><h3>Financial Planning</h3><p>Practical guidance for security, stability, and succession.</p></article>
+        <article class="card service reveal"><div class="icon">✦</div><h3>Speaking &amp; Training</h3><p>Engaging sessions that turn powerful ideas into practical transformation.</p></article>
+        <article class="card service reveal"><div class="icon">▶</div><h3>Content Creation</h3><p>Purposeful content through Rada Talks and Jun &amp; Rada Studio—covering leadership, life, career growth, finance, creativity, and meaningful spaces.</p></article>
+      </div>
+    </div></section>
+
+    <section class="section dark" id="speaking"><div class="container speaking-grid">
+      <div class="copy reveal"><div class="eyebrow">Speaking &amp; Training</div><h2>Invite Rada to <span class="gold">Speak</span></h2><p>Bring an authentic, practical, and energizing voice to your conference, organization, school, or community.</p><a class="btn primary" href="#contact">Request a Speaking Engagement →</a></div>
+      <div class="topics reveal"><div class="topic"><b>01</b>Leadership</div><div class="topic"><b>02</b>Women's Empowerment</div><div class="topic"><b>03</b>Career Growth</div><div class="topic"><b>04</b>Financial Literacy</div><div class="topic"><b>05</b>Personal Development</div><div class="topic"><b>06</b>Resilience</div></div>
+    </div></section>
+
+    <section class="section" id="resources"><div class="container">
+      <div class="heading reveal"><div class="eyebrow">Grow with Confidence</div><h2>Featured <span class="gold">Resources</span></h2></div>
+      <div class="grid3">
+        <article class="card service reveal"><small class="gold">WATCH</small><h3>Rada Talks on YouTube</h3><p>Honest conversations, thoughtful interviews, and stories that move people forward.</p><a class="gold" href="https://www.youtube.com/@TalksWithRada" target="_blank" rel="noopener">Explore episodes →</a></article>
+        <article class="card service reveal"><small class="gold">LEARN</small><h3>The 3S Framework</h3><p>Explore financial confidence through Security, Stability, and Succession.</p><a class="gold" href="#planning">Discover the framework →</a></article>
+        <article class="card service reveal"><small class="gold">CONNECT</small><h3>Daily Insights</h3><p>Practical ideas about leadership, growth, resilience, and financial literacy.</p><a class="gold" href="https://www.instagram.com/radatalks" target="_blank" rel="noopener">Follow on Instagram →</a></article>
+      </div>
+    </div></section>
+
+    <section class="cta dark" id="contact"><div class="container"><div class="cta-box reveal"><div class="eyebrow" style="justify-content:center">Your Next Chapter</div><h2>Ready to take the <span class="gold">next step?</span></h2><p>Tell us about your goals. Your information will be reviewed for a personal, no-pressure consultation.</p><a class="btn primary" href="#consultation-form" data-open-form="consultation">Start My Consultation Form →</a></div></div></section>
+  </main>
+
+  <div class="form-modal" id="consultation-modal" role="dialog" aria-modal="true" aria-labelledby="consultation-title">
+    <div class="form-shell">
+      <button class="form-close" type="button" data-close-form aria-label="Close consultation form">×</button>
+      <div class="eyebrow">Private Client Intake</div>
+      <h2 id="consultation-title">Request a <span class="gold">free consultation.</span></h2>
+      <p class="form-intro">Share a few details so the financial planning team can understand your goals and prepare for a meaningful conversation.</p>
+      <form id="consultation-form" data-lead-form="consultation">
+        <div class="form-grid">
+          <div class="field"><label for="client-first">First name</label><input id="client-first" name="first_name" autocomplete="given-name" required></div>
+          <div class="field"><label for="client-last">Last name</label><input id="client-last" name="last_name" autocomplete="family-name" required></div>
+          <div class="field"><label for="client-email">Email address</label><input id="client-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="client-phone">Mobile number</label><input id="client-phone" name="phone" type="tel" autocomplete="tel" placeholder="09XX XXX XXXX" required></div>
+          <div class="field full"><label for="client-goal">What would you like help with?</label><select id="client-goal" name="topic" required><option value="">Select one</option><option>Life and health protection</option><option>Savings and investments</option><option>Retirement planning</option><option>Estate planning and wealth transfer</option><option>Financial planning career opportunity</option><option>Not sure yet</option></select></div>
+          <div class="field"><label for="client-city">City / Province</label><input id="client-city" name="location" autocomplete="address-level2"></div>
+          <div class="field"><label for="client-time">Preferred contact time</label><select id="client-time" name="preferred_time"><option>Morning</option><option>Afternoon</option><option>Evening</option></select></div>
+          <div class="field full"><label for="client-message">Tell us briefly about your goal</label><textarea id="client-message" name="message"></textarea></div>
+        </div>
+        <input type="hidden" name="source" value="Rada Talks Website">
+        <button class="btn primary" type="submit">Submit Consultation Request →</button>
+        <p class="form-note">By submitting, you agree that the team may contact you about your request. Your information will be handled privately.</p>
+        <div class="form-status" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+  </div>
+
+  <div class="form-modal" id="guest-modal" role="dialog" aria-modal="true" aria-labelledby="guest-title">
+    <div class="form-shell">
+      <button class="form-close" type="button" data-close-form aria-label="Close podcast guest form">×</button>
+      <div class="eyebrow">Rada Talks Podcast</div>
+      <h2 id="guest-title">Apply to be a <span class="gold">podcast guest.</span></h2>
+      <p class="form-intro">This form is for podcast guests only. Tell us about your story, expertise, and the conversation you would love to share.</p>
+      <form id="guest-form" data-lead-form="guest">
+        <div class="form-grid">
+          <div class="field"><label for="guest-name">Full name</label><input id="guest-name" name="name" autocomplete="name" required></div>
+          <div class="field"><label for="guest-email">Email address</label><input id="guest-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="guest-role">Role / Organization</label><input id="guest-role" name="role" required></div>
+          <div class="field"><label for="guest-link">Website or social link</label><input id="guest-link" name="profile_url" type="url" placeholder="https://"></div>
+          <div class="field full"><label for="guest-topic">Proposed conversation topic</label><input id="guest-topic" name="topic" required></div>
+          <div class="field full"><label for="guest-story">Why would this conversation help the Rada Talks audience?</label><textarea id="guest-story" name="message" required></textarea></div>
+        </div>
+        <input type="hidden" name="source" value="Rada Talks Podcast Guest Application">
+        <button class="btn primary" type="submit">Submit Guest Application →</button>
+        <p class="form-note">Submitting an application does not guarantee a booking. The Rada Talks team will review each proposed guest and topic.</p>
+        <div class="form-status" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+  </div>
+
+  <footer><div class="container footer-grid">
+    <div><a class="brand" href="#home"><img src="logo.png" alt="Rada Talks logo">Rada <span>Talks</span></a><p>Real Conversations.<br>Meaningful Growth.<br>Lasting Impact.</p><div class="social"><a href="https://www.youtube.com/@TalksWithRada" target="_blank" rel="noopener" aria-label="YouTube">YT</a><a href="https://www.tiktok.com/@radatalks" target="_blank" rel="noopener" aria-label="TikTok">TT</a><a href="https://www.facebook.com/talkswithrada/" target="_blank" rel="noopener" aria-label="Facebook">FB</a><a href="https://www.instagram.com/radatalks" target="_blank" rel="noopener" aria-label="Instagram">IG</a><a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">IN</a></div></div>
+    <div><h3>Quick Links</h3><ul><li><a href="#about">About Rada</a></li><li><a href="#podcast">Podcast</a></li><li><a href="#planning">Financial Planning</a></li><li><a href="#speaking">Speaking</a></li></ul></div>
+    <div><h3>Podcast Topics</h3><ul><li>Leadership</li><li>Career Growth</li><li>Relationships</li><li>Personal Development</li><li>Financial Literacy</li></ul></div>
+    <div><h3>Contact</h3><ul><li><a href="#contact">Financial consultation</a></li><li><a href="#guest-form" data-open-form="guest">Podcast guest application</a></li><li><a href="#speaking">Speaking inquiries</a></li></ul></div>
+  </div><div class="container bottom">© <span id="year"></span> Rada Talks. All rights reserved.</div></footer>
+  <script>
+    const header=document.querySelector("header"),menu=document.querySelector(".menu"),links=document.querySelector("nav ul");
+    const FORM_ENDPOINTS={consultation:"",guest:""};
+    addEventListener("scroll",()=>header.classList.toggle("scrolled",scrollY>20),{passive:true});
+    menu.addEventListener("click",()=>{const open=links.classList.toggle("open");menu.setAttribute("aria-expanded",open);document.body.classList.toggle("open",open)});
+    links.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{links.classList.remove("open");menu.setAttribute("aria-expanded","false");document.body.classList.remove("open")}));
+    const closeForms=()=>{document.querySelectorAll(".form-modal.active").forEach(modal=>modal.classList.remove("active"));document.body.classList.remove("open")};
+    document.querySelectorAll("[data-open-form]").forEach(trigger=>trigger.addEventListener("click",event=>{event.preventDefault();closeForms();const modal=document.getElementById(`${trigger.dataset.openForm}-modal`);modal.classList.add("active");document.body.classList.add("open");modal.querySelector("input,select,textarea").focus()}));
+    document.querySelectorAll("[data-close-form]").forEach(button=>button.addEventListener("click",closeForms));
+    document.querySelectorAll(".form-modal").forEach(modal=>modal.addEventListener("click",event=>{if(event.target===modal)closeForms()}));
+    addEventListener("keydown",event=>{if(event.key==="Escape")closeForms()});
+    document.querySelectorAll("[data-lead-form]").forEach(form=>form.addEventListener("submit",async event=>{
+      event.preventDefault();
+      const status=form.querySelector(".form-status"),endpoint=FORM_ENDPOINTS[form.dataset.leadForm];
+      status.classList.add("show");
+      if(!endpoint){status.textContent="The form design is ready. Add the dashboard's public intake endpoint to activate secure lead submission.";return}
+      const button=form.querySelector('button[type="submit"]');button.disabled=true;status.textContent="Submitting...";
+      try{const response=await fetch(endpoint,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(Object.fromEntries(new FormData(form)))});if(!response.ok)throw new Error();form.reset();status.textContent="Thank you. Your information has been received and the team will contact you soon."}
+      catch{status.textContent="We couldn't submit your form right now. Please try again shortly."}
+      finally{button.disabled=false}
+    }));
+    const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");observer.unobserve(e.target)}}),{threshold:.12});
+    document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+    document.getElementById("year").textContent=new Date().getFullYear();
+  </script>
+</body>
+</html>
