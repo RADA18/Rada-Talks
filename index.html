@@ -10,7 +10,7 @@
   <meta property="og:title" content="Rada Talks">
   <meta property="og:description" content="Real Conversations. Meaningful Growth. Lasting Impact.">
   <meta property="og:image" content="hero-rada.jpg">
-  <meta name="twitter:card" content="summary_large_image">  
+  <meta name="twitter:card" content="summary_large_image">
   <style>
     :root{--black:#070707;--panel:#111;--gold:#d5ae43;--light:#f4d77e;--cream:#f5f0e5;--muted:#b7b0a5;--line:rgba(213,174,67,.25);--max:1180px}
     *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:82px}body{margin:0;overflow-x:hidden;background:var(--black);color:var(--cream);font-family:Inter,Segoe UI,Arial,sans-serif;line-height:1.7}body.open{overflow:hidden}
@@ -25,7 +25,7 @@
     .brand{display:flex;align-items:center;gap:.8rem;font-family:Georgia,serif;font-size:1.3rem}.brand img{width:54px;height:42px;border-radius:4px;object-fit:cover}.brand span{color:var(--gold)}
     nav ul{display:flex;align-items:center;gap:1.25rem;margin:0;padding:0;list-style:none}nav a:not(.btn){font-size:.82rem;font-weight:700}nav .btn{min-height:43px;padding:.6rem 1rem}.menu{display:none;width:44px;height:44px;border:1px solid var(--line);border-radius:50%;background:none;color:#fff}.menu span{display:block;width:19px;height:1px;margin:5px auto;background:currentColor}
     .hero{position:relative;display:grid;min-height:100vh;align-items:center;padding:9rem 0 5rem;background:radial-gradient(circle at 15% 15%,rgba(213,174,67,.1),transparent 30rem)}.hero-grid{display:grid;align-items:center;gap:4rem;grid-template-columns:1.08fr .92fr}.hero h1 span{display:block}.hero-copy>p{max-width:650px;color:var(--muted);font-size:1.08rem}.roles{color:var(--light);font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
-    .hero-photo{position:relative;overflow:hidden;height:620px;border:1px solid var(--line);border-radius:230px 230px 24px 24px;background:#151515;box-shadow:0 30px 70px #000}.hero-photo:after{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.75),transparent 40%);content:""}.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 10%}.photo-caption{position:absolute;z-index:2;right:2rem;bottom:2rem;left:2rem}.photo-caption strong{display:block;font-family:Georgia,serif;font-size:1.5rem}.photo-caption small{color:var(--light);letter-spacing:.1em;text-transform:uppercase}
+    .hero-photo{position:relative;overflow:hidden;height:620px;border:1px solid var(--line);border-radius:230px 230px 24px 24px;background:#151515;box-shadow:0 30px 70px #000}.hero-photo:after{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.75),transparent 40%);content:""}.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:52% 28%}.photo-caption{position:absolute;z-index:2;right:2rem;bottom:2rem;left:2rem}.photo-caption strong{display:block;font-family:Georgia,serif;font-size:1.5rem}.photo-caption small{color:var(--light);letter-spacing:.1em;text-transform:uppercase}
     .stats{border-block:1px solid var(--line);background:#0c0c0c}.stats-grid{display:grid;grid-template-columns:repeat(4,1fr)}.stat{padding:2.6rem 1rem;text-align:center}.stat+ .stat{border-left:1px solid var(--line)}.stat b{display:block;color:var(--light);font-family:Georgia,serif;font-size:3rem;font-weight:500;line-height:1}.stat small{color:var(--muted);font-weight:700;letter-spacing:.06em;text-transform:uppercase}
     .chips{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;margin-bottom:2rem}.chips span{padding:.45rem .8rem;border:1px solid var(--line);border-radius:99px;color:#d8d1c7;font-size:.8rem}
     .podcast-showcase{display:grid;overflow:hidden;border:1px solid var(--line);border-radius:24px;background:linear-gradient(135deg,#18150d,#0e0e0e 65%);grid-template-columns:1.05fr .95fr}.podcast-visual{position:relative;display:grid;min-height:390px;place-items:center;background:radial-gradient(circle,rgba(213,174,67,.17),transparent 52%),#131313}.podcast-visual:before{position:absolute;width:250px;height:250px;border:1px solid var(--line);border-radius:50%;content:""}.podcast-visual .play{z-index:1;width:90px;height:90px;background:#090909;font-size:1.3rem}.podcast-copy{display:flex;padding:clamp(2rem,5vw,4rem);justify-content:center;flex-direction:column}.podcast-copy p{color:var(--muted)}.podcast-copy .actions{justify-content:flex-start}
@@ -40,15 +40,7 @@
     .reveal{opacity:0;transform:translateY(25px);transition:.7s}.reveal.visible{opacity:1;transform:none}
     @media(max-width:1060px){.menu{display:block}nav ul{position:fixed;top:82px;right:0;bottom:0;display:flex;width:min(360px,100%);padding:2rem;align-items:stretch;flex-direction:column;background:#080808;transform:translateX(105%);transition:.3s}nav ul.open{transform:none}.grid4{grid-template-columns:1fr 1fr}.footer-grid{grid-template-columns:1fr 1fr}}
     @media(max-width:820px){.section{padding:5rem 0}.hero-grid,.about,.speaking-grid,.podcast-showcase{grid-template-columns:1fr}.hero-copy{text-align:center}.hero-copy .eyebrow,.actions{justify-content:center}.hero-photo{width:min(100%,460px);height:600px;margin:auto}.stats-grid{grid-template-columns:1fr 1fr}.stat:nth-child(3){border-left:0}.stat:nth-child(-n+2){border-bottom:1px solid var(--line)}.grid3,.framework-cards,.framework-summary,.accordion-content{grid-template-columns:1fr}.life-stages{grid-template-columns:1fr 1fr}.card{max-width:600px;margin:auto}.portrait{width:min(100%,480px);margin:auto}.podcast-copy{text-align:center}.podcast-copy .actions{justify-content:center}}
-    @media(max-width:560px){.container{width:min(calc(100% - 1.4rem),var(--max))}.brand img{width:48px;height:37px}.brand{font-size:1.1rem}.hero h1{font-size:clamp(3rem,16vw,4.3rem)}.hero-photo{height:510px}.hero-photo img{
-width:100%;
-height:100%;
-object-fit:cover;
-object-position:center top;
-transform:scale(1.75);
-display:block;
-}
-}.actions .btn{width:100%}.grid4,.topics,.footer-grid,.form-grid,.credentials{grid-template-columns:1fr}.field.full{grid-column:auto}.stat{padding:2rem .5rem}.stat b{font-size:2.4rem}.stat small{font-size:.65rem}.portrait{height:480px}.framework-card ul{display:grid}.cta-box{padding:4rem 1rem}}
+    @media(max-width:560px){.container{width:min(calc(100% - 1.4rem),var(--max))}.brand img{width:48px;height:37px}.brand{font-size:1.1rem}.hero h1{font-size:clamp(3rem,16vw,4.3rem)}.hero-photo{height:510px}.hero-photo img{object-position:53% 25%}.actions .btn{width:100%}.grid4,.topics,.footer-grid,.form-grid,.credentials{grid-template-columns:1fr}.field.full{grid-column:auto}.stat{padding:2rem .5rem}.stat b{font-size:2.4rem}.stat small{font-size:.65rem}.portrait{height:480px}.framework-card ul{display:grid}.cta-box{padding:4rem 1rem}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
   </style>
 </head>
@@ -71,12 +63,10 @@ display:block;
     <section class="hero" id="home">
       <div class="container hero-grid">
         <div class="hero-copy reveal">
-         <div class="eyebrow">Welcome to Rada Talks</div>  
-         <h1><span>Real Conversations.</span><span class="gold">Real Growth.</span><span class="gold">Real Impact.</span>
+          <div class="eyebrow">Welcome to Rada Talks</div>
+          <h1><span>Real Conversations.</span><span class="gold">Meaningful Growth.</span><span>Lasting Impact.</span></h1>
           <p>A resilient woman sharing real stories, leadership lessons, financial insights, and meaningful conversations that inspire growth, confidence, and purpose.</p>
-           <div class="roles">
-Speaker • Podcaster • Financial Planning Advocate • Operations Leader
-</div>
+          <div class="roles">Speaker • Podcaster • Financial Planning Advocate • Operations Leader</div>
           <div class="actions"><a class="btn primary" href="https://www.youtube.com/@TalksWithRada" target="_blank" rel="noopener">Watch Rada Talks →</a><a class="btn outline" href="#consultation-form" data-open-form="consultation">Book a Free Consultation</a></div>
         </div>
         <div class="hero-photo reveal">
@@ -105,7 +95,7 @@ Speaker • Podcaster • Financial Planning Advocate • Operations Leader
     </div></section>
 
     <section class="section" id="about"><div class="container about">
-      <div class="portrait reveal"><img src="about-rada.JPG" alt="Portrait of Radaba Polo wearing a floral dress"></div>
+      <div class="portrait reveal"><img src="about-rada.jpg" alt="Portrait of Radaba Polo wearing a floral dress"></div>
       <div class="copy reveal">
         <div class="eyebrow">About Rada</div>
         <h2>A leader's discipline brought to <span class="gold">your family's future.</span></h2>
