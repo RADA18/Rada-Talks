@@ -22,7 +22,16 @@
     .heading{max-width:720px;margin:0 auto 3rem;text-align:center}.heading .eyebrow{justify-content:center}.heading p{color:var(--muted);font-size:1.05rem}
     .btn{display:inline-flex;min-height:52px;align-items:center;justify-content:center;padding:.85rem 1.35rem;border:1px solid var(--gold);border-radius:99px;font-size:.88rem;font-weight:800;transition:.25s}.btn:hover{transform:translateY(-3px)}.primary{background:linear-gradient(135deg,var(--light),var(--gold),#99731c);color:#090909;box-shadow:0 12px 35px rgba(213,174,67,.2)}.outline:hover{background:var(--gold);color:#000}
     header{position:fixed;inset:0 0 auto;z-index:1000;border-bottom:1px solid transparent;transition:.3s}header.scrolled{border-color:var(--line);background:rgba(7,7,7,.93);backdrop-filter:blur(16px)}.nav{display:flex;min-height:82px;align-items:center;justify-content:space-between;gap:1rem}
-    .brand{display:flex;align-items:center;gap:.8rem;font-family:Georgia,serif;font-size:1.3rem}.brand img{width:54px;height:42px;border-radius:4px;object-fit:cover}.brand span{color:var(--gold)}
+    .brand{display:flex;align-items:center;gap:.8rem;font-family:Georgia,serif;font-size:1.3rem}.brand strong{
+    font-weight:400;
+    color:var(--light);
+}
+
+.brand span{
+    color:var(--gold);
+    margin-left:.15rem;
+}
+    .brand img{width:54px;height:42px;border-radius:4px;object-fit:cover}
     nav ul{display:flex;align-items:center;gap:1.25rem;margin:0;padding:0;list-style:none}nav a:not(.btn){font-size:.82rem;font-weight:700}nav .btn{min-height:43px;padding:.6rem 1rem}.menu{display:none;width:44px;height:44px;border:1px solid var(--line);border-radius:50%;background:none;color:#fff}.menu span{display:block;width:19px;height:1px;margin:5px auto;background:currentColor}
     .hero{position:relative;display:grid;min-height:100vh;align-items:center;padding:9rem 0 5rem;background:radial-gradient(circle at 15% 15%,rgba(213,174,67,.1),transparent 30rem)}.hero-grid{display:grid;align-items:center;gap:4rem;grid-template-columns:1.08fr .92fr}.hero h1 span{display:block}.hero-copy>p{max-width:650px;color:var(--muted);font-size:1.08rem}.roles{color:var(--light);font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
     .hero-photo{position:relative;overflow:hidden;height:620px;border:1px solid var(--line);border-radius:230px 230px 24px 24px;background:#151515;box-shadow:0 30px 70px #000}.hero-photo:after{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.75),transparent 40%);content:""}.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:52% 28%}.photo-caption{position:absolute;z-index:2;right:2rem;bottom:2rem;left:2rem}.photo-caption strong{display:block;font-family:Georgia,serif;font-size:1.5rem}.photo-caption small{color:var(--light);letter-spacing:.1em;text-transform:uppercase}
@@ -48,7 +57,10 @@
   <a class="skip" href="#main">Skip to content</a>
   <header id="header">
     <div class="container nav">
-      <a class="brand" href="#home"><img src="logo.png" alt="Rada Talks RT logo">Rada <span>Talks</span></a>
+      <a class="brand" href="#home">
+    <img src="logo.png" alt="Rada Talks RT logo">
+    <strong>Rada</strong><span>Talks</span>
+</a>
       <button class="menu" aria-expanded="false" aria-controls="navlinks" aria-label="Open menu"><span></span><span></span><span></span></button>
       <nav aria-label="Main navigation">
         <ul id="navlinks">
