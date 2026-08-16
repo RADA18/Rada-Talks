@@ -11,7 +11,17 @@
 h1,h2{font-family:Georgia,serif;font-weight:500;margin:0}h1{font-size:2.4rem}.gold{color:var(--light)}
 .controls{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0}.controls input,.controls select,.controls button{min-height:44px;padding:8px 12px;border:1px solid var(--line);border-radius:10px;background:#151515;color:#fff}
 button{cursor:pointer}.primary{background:linear-gradient(135deg,var(--light),var(--gold));color:#090909!important;font-weight:800}
-.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:20px 0}.card{padding:20px;border:1px solid var(--line);border-radius:16px;background:var(--panel)}.card b{display:block;color:var(--light);font:2.2rem Georgia,serif}.card small{color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.cards{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:16px;
+  margin:20px 0;
+  align-items:stretch;
+}
+
+.card{
+  min-width:0;
+}.card{padding:20px;border:1px solid var(--line);border-radius:16px;background:var(--panel)}.card b{display:block;color:var(--light);font:2.2rem Georgia,serif}.card small{color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
 .table-wrap{overflow:auto;border:1px solid var(--line);border-radius:16px;background:#0e0e0e}table{width:100%;border-collapse:collapse;min-width:1050px}th,td{padding:13px;border-bottom:1px solid #1d1d1d;text-align:left;vertical-align:top}th{color:var(--light);font-size:.75rem;text-transform:uppercase;letter-spacing:.07em;position:sticky;top:0;background:#111}td{color:#d8d1c7}td small{color:var(--muted)}.status{border:1px solid var(--line);border-radius:8px;background:#151515;color:#fff;padding:6px}.empty{padding:40px;text-align:center;color:var(--muted)}
 @media(max-width:800px){.cards{grid-template-columns:1fr 1fr}.top{align-items:flex-start;gap:15px;flex-direction:column}}
 </style>
@@ -40,8 +50,18 @@ button{cursor:pointer}.primary{background:linear-gradient(135deg,var(--light),va
 
   <div id="message" style="color:var(--muted);margin-bottom:15px"></div>
   <div class="table-wrap"><table><thead><tr>
-    <th>Date</th><th>Type</th><th>Name</th><th>Contact</th><th>Topic</th><th>Message</th><th>Status</th>
-  </tr></thead><tbody id="rows"><tr><td colspan="7" class="empty">Connect the dashboard to load leads.</td></tr></tbody></table></div>
+    <th>Date</th>
+<th>Type</th>
+<th>Name</th>
+<th>Contact</th>
+<th>Topic</th>
+<th>Message</th>
+<th>Assigned Advisor</th>
+<th>Follow-up Date</th>
+<th>Call Notes</th>
+<th>Status</th>
+<th>Save</th>
+  </tr></thead><tbody id="rows"><tr><td colspan="11" class="empty">Connect the dashboard to load leads.</td></tr></tbody></table></div>
 </div>
 
 <script>
@@ -49,7 +69,20 @@ const $=id=>document.getElementById(id);
 let leads=[];
 $("endpoint").value=localStorage.getItem("radaEndpoint")||"";
 $("key").value=localStorage.getItem("radaAdminKey")||"";
+function formatDate(value) {
+  if (!value) return "";
 
+  const d = new Date(value);
+
+  return d.toLocaleString("en-PH", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+    hour: "numeric",
+    minute: "2-digit"
+  });
+
+}
 function esc(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]))}
 function save(){localStorage.setItem("radaEndpoint",$("endpoint").value.trim());localStorage.setItem("radaAdminKey",$("key").value)}
 function filtered(){
@@ -66,15 +99,118 @@ function render(){
  $("consult").textContent=leads.filter(x=>x.form_type==="consultation").length;
  $("guests").textContent=leads.filter(x=>x.form_type==="guest").length;
  $("rows").innerHTML=f.length?f.map((x,i)=>`<tr>
- <td>${esc(x.date)}</td>
+ <td>${esc(formatDate(x.date))}</td>
  <td>${esc(x.form_type)}</td>
  <td><b>${esc(x.name)}</b><br><small>${esc(x.location)}</small></td>
  <td>${esc(x.email)}<br>${esc(x.phone)}</td>
- <td>${esc(x.topic)}<br><small>${esc(x.preferred_time)}</small></td>
+<td>
+  ${esc(x.topic)}<br>
+  <small>Preferred contact: ${esc(x.preferred_time)}</small>
+</td>
  <td>${esc(x.message)}</td>
- <td><select class="status" data-index="${leads.indexOf(x)}"><option ${x.status==="New"||!x.status?"selected":""}>New</option><option ${x.status==="Contacted"?"selected":""}>Contacted</option><option ${x.status==="Qualified"?"selected":""}>Qualified</option><option ${x.status==="Closed"?"selected":""}>Closed</option></select></td>
- </tr>`).join(""):`<tr><td colspan="7" class="empty">No leads match your filters.</td></tr>`;
- document.querySelectorAll(".status").forEach(s=>s.addEventListener("change",()=>{leads[+s.dataset.index].status=s.value;render()}));
+
+<td>
+  <input
+    class="advisor"
+    data-index="${leads.indexOf(x)}"
+    value="${esc(x.assignedAdvisor || "")}"
+    placeholder="Advisor name"
+  >
+</td>
+
+<td>
+  <input
+    class="followup"
+    data-index="${leads.indexOf(x)}"
+    type="date"
+    value="${esc(x.followUpDate || "")}"
+  >
+</td>
+
+<td>
+  <textarea
+    class="notes"
+    data-index="${leads.indexOf(x)}"
+    placeholder="Call notes"
+  >${esc(x.notes || "")}</textarea>
+</td>
+
+<td>
+  <select class="status" data-index="${leads.indexOf(x)}">
+    <option ${x.status==="New"||!x.status?"selected":""}>New</option>
+    <option ${x.status==="Contacted"?"selected":""}>Contacted</option>
+    <option ${x.status==="In Progress"?"selected":""}>In Progress</option>
+    <option ${x.status==="Qualified"?"selected":""}>Qualified</option>
+    <option ${x.status==="Won"?"selected":""}>Won</option>
+    <option ${x.status==="Closed - Not Proceeding"?"selected":""}>Closed - Not Proceeding</option>
+  </select>
+</td>
+
+<td>
+  <button
+    class="save-lead primary"
+    data-index="${leads.indexOf(x)}"
+  >
+    Save
+  </button>
+</td>
+ </tr>`).join(""):`<tr><td colspan="11" class="empty">No leads match your filters.</td></tr>`;
+  document.querySelectorAll(".save-lead").forEach(button => {
+  button.addEventListener("click", () => {
+    saveLead(Number(button.dataset.index), button);
+  });
+});
+}
+
+async function saveLead(index, button) {
+  const endpoint = $("endpoint").value.trim();
+  const key = $("key").value.trim();
+  const lead = leads[index];
+
+  if (!endpoint || !key || !lead) {
+    $("message").textContent = "Missing dashboard connection or lead information.";
+    return;
+  }
+
+  const advisor = document.querySelector(`.advisor[data-index="${index}"]`);
+  const followup = document.querySelector(`.followup[data-index="${index}"]`);
+  const notes = document.querySelector(`.notes[data-index="${index}"]`);
+  const status = document.querySelector(`.status[data-index="${index}"]`);
+
+  const payload = {
+    action: "updateLead",
+    key: key,
+    rowNumber: lead.rowNumber,
+    assignedAdvisor: advisor ? advisor.value.trim() : "",
+    followUpDate: followup ? followup.value : "",
+    notes: notes ? notes.value.trim() : "",
+    status: status ? status.value : "New"
+  };
+
+  button.disabled = true;
+  button.textContent = "Saving...";
+  $("message").textContent = "Saving lead update...";
+
+  try {
+    await fetch(endpoint, {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "text/plain;charset=utf-8"
+      },
+      body: JSON.stringify(payload)
+    });
+
+    await new Promise(resolve => setTimeout(resolve, 1200));
+    await load();
+
+    $("message").textContent = "Lead update saved to Google Sheets.";
+
+  } catch (error) {
+    console.error(error);
+    $("message").textContent = "Could not save this lead. Please try again.";
+  }
+
 }
 async function load(){
  save();
@@ -83,7 +219,7 @@ async function load(){
  $("message").textContent="Loading...";
  try{
    const r=await fetch(endpoint+"?key="+encodeURIComponent(key),{cache:"no-store"});
- const data = await r.json();
+   const data = await r.json();
 
 if (!data.success) {
   throw new Error(data.error || "Unable to load");
@@ -99,8 +235,29 @@ leads = (data.leads || []).map(x => ({
   location: x.city || "",
   preferred_time: x.contactTime || "",
   message: x.goal || "",
+  rowNumber: x.rowNumber,
+  followUpDate: x.followUpDate ? String(x.followUpDate).slice(0,10) : "",
+  notes: x.notes || "",
+  assignedAdvisor: x.assignedAdvisor || "",
   status: x.status || "New"
 }));
 
 render();
 $("message").textContent = "Last refreshed: " + new Date().toLocaleString();
+  } catch (error) {
+    console.error(error);
+    $("message").textContent =
+      "Dashboard connection failed: " + error.message;
+  }
+}
+
+$("refresh").addEventListener("click", load);
+
+["search", "type", "status"].forEach(id => {
+  $(id).addEventListener("input", render);
+});
+
+render();
+</script>
+</body>
+</html>
