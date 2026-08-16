@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rada Talks | Lead Dashboard</title>
+<style>
+:root{--black:#070707;--panel:#111;--gold:#d5ae43;--light:#f4d77e;--cream:#f5f0e5;--muted:#aaa297;--line:rgba(213,174,67,.25)}
+*{box-sizing:border-box}body{margin:0;background:var(--black);color:var(--cream);font:15px/1.6 Inter,Segoe UI,Arial,sans-serif}
+.wrap{width:min(1400px,calc(100% - 32px));margin:auto}.top{display:flex;justify-content:space-between;align-items:center;padding:28px 0;border-bottom:1px solid var(--line)}
+h1,h2{font-family:Georgia,serif;font-weight:500;margin:0}h1{font-size:2.4rem}.gold{color:var(--light)}
+.controls{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0}.controls input,.controls select,.controls button{min-height:44px;padding:8px 12px;border:1px solid var(--line);border-radius:10px;background:#151515;color:#fff}
+button{cursor:pointer}.primary{background:linear-gradient(135deg,var(--light),var(--gold));color:#090909!important;font-weight:800}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:20px 0}.card{padding:20px;border:1px solid var(--line);border-radius:16px;background:var(--panel)}.card b{display:block;color:var(--light);font:2.2rem Georgia,serif}.card small{color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:16px;background:#0e0e0e}table{width:100%;border-collapse:collapse;min-width:1050px}th,td{padding:13px;border-bottom:1px solid #1d1d1d;text-align:left;vertical-align:top}th{color:var(--light);font-size:.75rem;text-transform:uppercase;letter-spacing:.07em;position:sticky;top:0;background:#111}td{color:#d8d1c7}td small{color:var(--muted)}.status{border:1px solid var(--line);border-radius:8px;background:#151515;color:#fff;padding:6px}.empty{padding:40px;text-align:center;color:var(--muted)}
+@media(max-width:800px){.cards{grid-template-columns:1fr 1fr}.top{align-items:flex-start;gap:15px;flex-direction:column}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div><div class="gold">RADA TALKS</div><h1>Lead <span class="gold">Dashboard</span></h1></div>
+    <button id="refresh" class="primary">Refresh</button>
+  </header>
+
+  <div class="controls">
+    <input id="endpoint" placeholder="Apps Script Web App URL" style="min-width:360px">
+    <input id="key" type="password" placeholder="Admin key" style="min-width:220px">
+    <input id="search" placeholder="Search name, email, topic...">
+    <select id="type"><option value="">All forms</option><option value="consultation">Consultations</option><option value="guest">Podcast guests</option></select>
+    <select id="status"><option value="">All statuses</option><option>New</option><option>Contacted</option><option>Qualified</option><option>Closed</option></select>
+  </div>
+
+  <section class="cards">
+    <div class="card"><b id="total">0</b><small>Total leads</small></div>
+    <div class="card"><b id="new">0</b><small>New</small></div>
+    <div class="card"><b id="consult">0</b><small>Consultations</small></div>
+    <div class="card"><b id="guests">0</b><small>Guest applications</small></div>
+  </section>
+
+  <div id="message" style="color:var(--muted);margin-bottom:15px"></div>
+  <div class="table-wrap"><table><thead><tr>
+    <th>Date</th><th>Type</th><th>Name</th><th>Contact</th><th>Topic</th><th>Message</th><th>Status</th>
+  </tr></thead><tbody id="rows"><tr><td colspan="7" class="empty">Connect the dashboard to load leads.</td></tr></tbody></table></div>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+let leads=[];
+$("endpoint").value=localStorage.getItem("radaEndpoint")||"";
+$("key").value=localStorage.getItem("radaAdminKey")||"";
+
+function esc(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]))}
+function save(){localStorage.setItem("radaEndpoint",$("endpoint").value.trim());localStorage.setItem("radaAdminKey",$("key").value)}
+function filtered(){
+ const q=$("search").value.toLowerCase(), t=$("type").value, s=$("status").value;
+ return leads.filter(x=>
+   (!t||x.form_type===t)&&(!s||(x.status||"New")===s)&&
+   (!q||[x.name,x.email,x.phone,x.topic,x.message].join(" ").toLowerCase().includes(q))
+ );
+}
+function render(){
+ const f=filtered();
+ $("total").textContent=leads.length;
+ $("new").textContent=leads.filter(x=>(x.status||"New")==="New").length;
+ $("consult").textContent=leads.filter(x=>x.form_type==="consultation").length;
+ $("guests").textContent=leads.filter(x=>x.form_type==="guest").length;
+ $("rows").innerHTML=f.length?f.map((x,i)=>`<tr>
+ <td>${esc(x.date)}</td>
+ <td>${esc(x.form_type)}</td>
+ <td><b>${esc(x.name)}</b><br><small>${esc(x.location)}</small></td>
+ <td>${esc(x.email)}<br>${esc(x.phone)}</td>
+ <td>${esc(x.topic)}<br><small>${esc(x.preferred_time)}</small></td>
+ <td>${esc(x.message)}</td>
+ <td><select class="status" data-index="${leads.indexOf(x)}"><option ${x.status==="New"||!x.status?"selected":""}>New</option><option ${x.status==="Contacted"?"selected":""}>Contacted</option><option ${x.status==="Qualified"?"selected":""}>Qualified</option><option ${x.status==="Closed"?"selected":""}>Closed</option></select></td>
+ </tr>`).join(""):`<tr><td colspan="7" class="empty">No leads match your filters.</td></tr>`;
+ document.querySelectorAll(".status").forEach(s=>s.addEventListener("change",()=>{leads[+s.dataset.index].status=s.value;render()}));
+}
+async function load(){
+ save();
+ const endpoint=$("endpoint").value.trim(),key=$("key").value.trim();
+ if(!endpoint||!key){$("message").textContent="Enter the Apps Script Web App URL and admin key.";return}
+ $("message").textContent="Loading...";
+ try{
+   const r=await fetch(endpoint+"?key="+encodeURIComponent(key),{cache:"no-store"});
+ const data = await r.json();
+
+if (!data.success) {
+  throw new Error(data.error || "Unable to load");
+}
+
+leads = (data.leads || []).map(x => ({
+  date: x.date,
+  form_type: "consultation",
+  name: [x.firstName || "", x.lastName || ""].join(" ").trim(),
+  email: x.email || "",
+  phone: x.mobile || "",
+  topic: x.interest || "",
+  location: x.city || "",
+  preferred_time: x.contactTime || "",
+  message: x.goal || "",
+  status: x.status || "New"
+}));
+
+render();
+$("message").textContent = "Last refreshed: " + new Date().toLocaleString();
