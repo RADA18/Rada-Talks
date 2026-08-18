@@ -49,6 +49,105 @@
     .about{display:grid;align-items:center;gap:6rem;grid-template-columns:.9fr 1.1fr}.portrait{position:relative;height:570px}.portrait:before{position:absolute;inset:-15px 16px 16px -15px;border:1px solid var(--gold);border-radius:180px 180px 18px 18px;content:""}.portrait img{position:relative;width:100%;height:100%;border-radius:180px 180px 18px 18px;object-fit:cover;object-position:50% 42%}.copy p{color:var(--muted);font-size:1.07rem}.credentials{display:grid;gap:1.5rem;margin:1.7rem 0;grid-template-columns:1fr 1fr}.credentials h3{margin-bottom:.7rem;color:var(--light);font-family:Inter,sans-serif;font-size:.76rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.credentials ul{display:grid;gap:.4rem;margin:0;padding:0;list-style:none}.credentials li{color:#c8c1b6;font-size:.86rem}.credentials li:before{margin-right:.5rem;color:var(--gold);content:"◆";font-size:.5rem}.signature{color:var(--light);font-family:"Brush Script MT",cursive;font-size:2.3rem}
     .framework{display:grid;gap:2rem}.framework-cards{display:grid;gap:1rem;grid-template-columns:repeat(3,1fr)}.framework-card{position:relative;overflow:hidden;min-height:250px;padding:1.7rem;border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:16px;background:linear-gradient(135deg,#181818,#111)}.framework-card:after{position:absolute;right:-32px;bottom:-48px;color:rgba(213,174,67,.08);font-family:Georgia,serif;font-size:8rem;line-height:1;content:attr(data-number)}.framework-card h3{color:var(--light)}.framework-card p{margin:.45rem 0;color:var(--muted)}.framework-card .pillar-note{margin-top:1.2rem;padding-top:1rem;border-top:1px solid var(--line);color:#d8d1c7;font-size:.9rem}.framework-summary{display:grid;gap:1rem;grid-template-columns:1fr 1fr}.summary-panel{padding:1.6rem;border:1px solid var(--line);border-radius:18px;background:radial-gradient(circle at 90% 15%,rgba(213,174,67,.11),transparent 18rem),#101010}.summary-panel h3,.framework-explorer h3{margin-bottom:.7rem;color:var(--light)}.summary-panel p{margin:.3rem 0;color:var(--muted)}.timeline{display:grid;gap:.8rem}.timeline-step{position:relative;padding-left:2.2rem;color:#d8d1c7}.timeline-step:before{position:absolute;left:0;top:.15rem;display:grid;width:1.45rem;height:1.45rem;place-items:center;border:1px solid var(--gold);border-radius:50%;color:var(--light);font-size:.72rem;font-weight:900;content:attr(data-step)}.framework-explorer{padding:1.7rem;border:1px solid var(--line);border-radius:18px;background:#0f0f0f}.accordion{display:grid;gap:.7rem}.accordion details{border:1px solid var(--line);border-radius:14px;background:#151515}.accordion summary{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 1.2rem;color:var(--cream);font-weight:800;cursor:pointer}.accordion summary::-webkit-details-marker{display:none}.accordion summary:after{color:var(--gold);content:"+";font-size:1.35rem}.accordion details[open] summary:after{content:"–"}.accordion-content{display:grid;gap:1rem;padding:0 1.2rem 1.2rem;color:var(--muted);grid-template-columns:1fr 1fr}.accordion-content ul,.accordion-content ol{display:grid;gap:.45rem;margin:0;padding-left:1.1rem;color:#ddd6ca}.life-stages{display:grid;gap:.65rem;grid-template-columns:repeat(4,1fr)}.stage{padding:1rem;border:1px solid var(--line);border-radius:12px;background:#151515;text-align:center}.stage b{display:block;color:var(--light)}.stage small{color:var(--muted)}.framework-disclaimer{padding:1rem;border-left:2px solid var(--gold);color:#918a80;font-size:.78rem}
     .grid4{grid-template-columns:repeat(4,1fr)}.service{padding:2rem;min-height:270px}.icon{display:grid;width:55px;height:55px;margin-bottom:2rem;place-items:center;border:1px solid var(--gold);border-radius:50%;color:var(--light);font-size:1.4rem}.service p{color:var(--muted)}
+    .resource-card{
+  position:relative;
+  isolation:isolate;
+  background:
+    radial-gradient(circle at 90% 10%,rgba(213,174,67,.10),transparent 11rem),
+    var(--panel);
+}
+
+.resource-card:before{
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  border-radius:inherit;
+  background:linear-gradient(135deg,rgba(244,215,126,.08),transparent 45%);
+  opacity:0;
+  transition:.35s;
+  content:"";
+}
+
+.resource-card:hover{
+  transform:translateY(-10px);
+  border-color:rgba(244,215,126,.7);
+  box-shadow:0 24px 60px rgba(0,0,0,.35);
+}
+
+.resource-card:hover:before{
+  opacity:1;
+}
+
+.resource-icon{
+  display:grid;
+  width:54px;
+  height:54px;
+  margin-bottom:1.4rem;
+  place-items:center;
+  border:1px solid var(--gold);
+  border-radius:50%;
+  color:var(--light);
+  font-family:Georgia,serif;
+  font-size:1.1rem;
+  transition:.3s;
+}
+
+.resource-card:hover .resource-icon{
+  transform:rotate(-6deg) scale(1.08);
+  background:var(--gold);
+  color:#080808;
+}
+
+.resource-link{
+  display:inline-flex;
+  align-items:center;
+  gap:.45rem;
+  margin-top:1.2rem;
+  color:var(--light);
+  font-weight:800;
+}
+
+.resource-link span{
+  transition:.25s;
+}
+
+.resource-link:hover span{
+  transform:translateX(5px);
+}
+
+.social-resource-links{
+  display:grid;
+  gap:.65rem;
+  margin-top:1.2rem;
+}
+
+.social-resource-links a{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  padding:.75rem .9rem;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:rgba(255,255,255,.015);
+  transition:.25s;
+}
+
+.social-resource-links a:hover{
+  padding-left:1.05rem;
+  border-color:var(--gold);
+  background:rgba(213,174,67,.08);
+}
+
+.social-resource-links strong{
+  color:var(--cream);
+}
+
+.social-resource-links span{
+  color:var(--light);
+  font-size:.78rem;
+}
+    
     .speaking-grid{display:grid;align-items:center;gap:4rem;grid-template-columns:1fr 1fr}.topics{display:grid;gap:.7rem;grid-template-columns:1fr 1fr}.topic{padding:1.15rem;border:1px solid var(--line);border-radius:14px;background:#111}.topic b{margin-right:.7rem;color:var(--gold)}
     .cta{padding:6rem 0}.cta-box{padding:5rem 2rem;border:1px solid var(--gold);border-radius:28px;background:radial-gradient(circle at 90% 15%,rgba(244,215,126,.16),transparent 24rem),#100e09;text-align:center}.cta-box h2{margin:auto}.cta-box p{color:var(--muted);font-size:1.1rem}
     .form-modal{position:fixed;inset:0;z-index:2000;display:none;overflow:auto;padding:1.2rem;background:rgba(0,0,0,.82);backdrop-filter:blur(10px)}.form-modal.active{display:grid;place-items:center}.form-shell{position:relative;width:min(100%,760px);margin:auto;padding:clamp(1.4rem,4vw,2.6rem);border:1px solid var(--gold);border-radius:24px;background:#0d0d0d;box-shadow:0 30px 90px #000}.form-close{position:absolute;top:1rem;right:1rem;display:grid;width:42px;height:42px;place-items:center;border:1px solid var(--line);border-radius:50%;background:#151515;color:#fff;cursor:pointer}.form-shell h2{padding-right:3rem;font-size:clamp(2rem,5vw,3.4rem)}.form-intro{max-width:620px;margin:.8rem 0 1.6rem;color:var(--muted)}.form-grid{display:grid;gap:1rem;grid-template-columns:1fr 1fr}.field{display:grid;gap:.35rem}.field.full{grid-column:1/-1}.field label{font-size:.78rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase}.field input,.field select,.field textarea{width:100%;min-height:50px;padding:.8rem 1rem;border:1px solid var(--line);border-radius:10px;background:#151515;color:#fff;font:inherit}.field textarea{min-height:120px;resize:vertical}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--gold);outline:none}.form-note{margin:.8rem 0 0;color:#8f897f;font-size:.76rem}.form-status{display:none;margin-top:1rem;padding:.8rem 1rem;border:1px solid var(--line);border-radius:10px;color:var(--light)}.form-status.show{display:block}
@@ -319,43 +418,71 @@
     <section class="section" id="resources"><div class="container">
       <div class="heading reveal"><div class="eyebrow">Grow with Confidence</div><h2>Featured <span class="gold">Resources</span></h2></div>
       <div class="grid3">
-        <article class="card service reveal"><small class="gold">WATCH</small><h3>Rada Talks on YouTube</h3><p>Honest conversations, thoughtful interviews, and stories that move people forward.</p><a class="gold" href="https://www.youtube.com/@TalksWithRada" target="_blank" rel="noopener">Explore episodes →</a></article>
-        <article class="card service reveal"><small class="gold">LEARN</small><h3>The 3S Framework</h3><p>Explore financial confidence through Security, Stability, and Succession.</p><a class="gold" href="#planning">Discover the framework →</a></article>
-        <article class="card service reveal">
-  <small class="gold">CONNECT</small>
 
-  <h3>Join the Rada Talks Community</h3>
-
-  <p>
-    Follow Rada Talks for conversations, clips, stories,
-    updates, and behind-the-scenes moments.
-  </p>
-
-  <div style="display:grid;gap:.8rem;margin-top:1.2rem;">
-
-    <a class="gold"
-       href="https://www.facebook.com/talkswithrada/"
-       target="_blank"
-       rel="noopener">
-      Facebook • 11K+ Community →
+  <article class="card service resource-card reveal">
+    <div class="resource-icon">✦</div>
+    <small class="gold">WORK</small>
+    <h3>Work With Rada</h3>
+    <p>
+      Explore speaking, collaborations, podcast opportunities,
+      or financial planning conversations.
+    </p>
+    <a class="resource-link"
+       href="#work-with-rada"
+       data-open-form="work">
+      Explore ways to work together <span>→</span>
     </a>
+  </article>
 
-    <a class="gold"
-       href="https://www.tiktok.com/@radatalks"
-       target="_blank"
-       rel="noopener">
-      TikTok • @radatalks →
+  <article class="card service resource-card reveal">
+    <div class="resource-icon">3S</div>
+    <small class="gold">LEARN</small>
+    <h3>The 3S Framework</h3>
+    <p>
+      Build financial confidence through Security,
+      Stability, and Succession.
+    </p>
+    <a class="resource-link" href="#planning">
+      Explore the framework <span>→</span>
     </a>
+  </article>
 
-    <a class="gold"
-       href="https://www.instagram.com/radatalks"
-       target="_blank"
-       rel="noopener">
-      Instagram • @radatalks →
-    </a>
+  <article class="card service resource-card reveal">
+    <div class="resource-icon">◎</div>
+    <small class="gold">CONNECT</small>
+    <h3>Join the Rada Talks Community</h3>
+    <p>
+      Follow the conversations, clips, stories,
+      updates, and behind-the-scenes moments.
+    </p>
 
-  </div>
-</article>
+    <div class="social-resource-links">
+
+      <a href="https://www.facebook.com/talkswithrada/"
+         target="_blank"
+         rel="noopener">
+        <strong>Facebook</strong>
+        <span>11K+ Community →</span>
+      </a>
+
+      <a href="https://www.tiktok.com/@radatalks"
+         target="_blank"
+         rel="noopener">
+        <strong>TikTok</strong>
+        <span>@radatalks →</span>
+      </a>
+
+      <a href="https://www.instagram.com/radatalks"
+         target="_blank"
+         rel="noopener">
+        <strong>Instagram</strong>
+        <span>@radatalks →</span>
+      </a>
+
+    </div>
+  </article>
+
+</div>
         
       </div>
     </div></section>
