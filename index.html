@@ -138,7 +138,8 @@
 
         <a
           class="btn outline"
-          href="#contact"
+          href="#work-with-rada"
+          data-open-form="work"
         >
           Work With Rada →
         </a>
@@ -197,7 +198,7 @@
             <h3>Background</h3>
             <ul>
               <li>15+ years in Operations Leadership</li>
-              <li>Led teams of 500+ people</li>
+              <li>Led teams of 600+ people</li>
               <li>BPO, FinTech, SaaS, and HealthTech</li>
               <li>Lean Six Sigma Black Belt</li>
             </ul>
@@ -297,7 +298,13 @@
     </div></section>
 
     <section class="section dark" id="speaking"><div class="container speaking-grid">
-      <div class="copy reveal"><div class="eyebrow">Speaking &amp; Training</div><h2>Invite Rada to <span class="gold">Speak</span></h2><p>Bring an authentic, practical, and energizing voice to your conference, organization, school, or community.</p><a class="btn primary" href="#contact">Request a Speaking Engagement →</a></div>
+      <div class="copy reveal"><div class="eyebrow">Speaking &amp; Training</div><h2>Invite Rada to <span class="gold">Speak</span></h2><p>Bring an authentic, practical, and energizing voice to your conference, organization, school, or community.</p>
+    <a class="btn primary"
+       href="#speaking-form"
+       data-open-form="speaking">
+  Request a Speaking Engagement →
+</a>
+      </div>
       <div class="topics reveal"><div class="topic"><b>01</b>Leadership</div><div class="topic"><b>02</b>Women's Empowerment</div><div class="topic"><b>03</b>Career Growth</div><div class="topic"><b>04</b>Financial Literacy</div><div class="topic"><b>05</b>Personal Development</div><div class="topic"><b>06</b>Resilience</div></div>
     </div></section>
 
@@ -312,7 +319,151 @@
 
     <section class="cta dark" id="contact"><div class="container"><div class="cta-box reveal"><div class="eyebrow" style="justify-content:center">Your Next Chapter</div><h2>Ready to take the <span class="gold">next step?</span></h2><p>Tell us about your goals. Your information will be reviewed for a personal, no-pressure consultation.</p><a class="btn primary" href="#consultation-form" data-open-form="consultation">Start My Consultation Form →</a></div></div></section>
   </main>
+  <div class="form-modal" id="work-modal" role="dialog" aria-modal="true" aria-labelledby="work-title">
+  <div class="form-shell">
+    <button class="form-close" type="button" data-close-form aria-label="Close Work With Rada menu">×</button>
 
+    <div class="eyebrow">Work With Rada</div>
+
+    <h2 id="work-title">
+      How would you like to <span class="gold">work together?</span>
+    </h2>
+
+    <p class="form-intro">
+      Choose the conversation that best fits what you're looking for.
+    </p>
+
+    <div style="display:grid;gap:1rem;margin-top:1.5rem;">
+
+      <a class="btn primary"
+         href="#consultation-form"
+         data-open-form="consultation">
+        Financial Planning Consultation →
+      </a>
+
+      <a class="btn outline"
+         href="#speaking-form"
+         data-open-form="speaking">
+        Invite Rada to Speak →
+      </a>
+
+      <a class="btn outline"
+         href="#guest-form"
+         data-open-form="guest">
+        Apply as a Podcast Guest →
+      </a>
+
+    </div>
+
+    <p class="form-note" style="margin-top:1.5rem;">
+      Financial planning inquiries are handled by the financial planning team.
+      Speaking and Rada Talks inquiries are handled separately by Rada.
+    </p>
+  </div>
+</div>
+  <div class="form-modal" id="speaking-modal" role="dialog" aria-modal="true" aria-labelledby="speaking-title">
+  <div class="form-shell">
+    <button class="form-close" type="button" data-close-form aria-label="Close speaking inquiry form">×</button>
+
+    <div class="eyebrow">Speaking &amp; Training</div>
+
+    <h2 id="speaking-title">
+      Invite Rada to <span class="gold">Speak.</span>
+    </h2>
+
+    <p class="form-intro">
+      Tell me a little about your event, audience, and what you would like the session to accomplish.
+    </p>
+
+    <form id="speaking-form" data-lead-form="speaking">
+      <div class="form-grid">
+
+        <div class="field">
+          <label for="speaker-first">First name</label>
+          <input id="speaker-first" name="first_name" autocomplete="given-name" required>
+        </div>
+
+        <div class="field">
+          <label for="speaker-last">Last name</label>
+          <input id="speaker-last" name="last_name" autocomplete="family-name" required>
+        </div>
+
+        <div class="field">
+          <label for="speaker-email">Email address</label>
+          <input id="speaker-email" name="email" type="email" autocomplete="email" required>
+        </div>
+
+        <div class="field">
+          <label for="speaker-phone">Mobile number</label>
+          <input id="speaker-phone" name="phone" type="tel" autocomplete="tel">
+        </div>
+
+        <div class="field full">
+          <label for="speaker-org">Organization / Company / School</label>
+          <input id="speaker-org" name="organization" required>
+        </div>
+
+        <div class="field">
+          <label for="speaker-date">Event date</label>
+          <input id="speaker-date" name="event_date" type="date">
+        </div>
+
+        <div class="field">
+          <label for="speaker-location">Event location</label>
+          <input id="speaker-location" name="location" placeholder="City, venue, or Online">
+        </div>
+
+        <div class="field">
+          <label for="speaker-audience">Expected audience size</label>
+          <input id="speaker-audience" name="audience_size" placeholder="e.g. 100 attendees">
+        </div>
+
+        <div class="field">
+          <label for="speaker-format">Event format</label>
+          <select id="speaker-format" name="event_format">
+            <option value="">Select one</option>
+            <option>In-person</option>
+            <option>Virtual</option>
+            <option>Hybrid</option>
+          </select>
+        </div>
+
+        <div class="field full">
+          <label for="speaker-topic">Preferred topic</label>
+          <select id="speaker-topic" name="topic" required>
+            <option value="">Select one</option>
+            <option>Leadership</option>
+            <option>Women's Empowerment</option>
+            <option>Career Growth</option>
+            <option>Financial Literacy</option>
+            <option>Personal Development</option>
+            <option>Resilience</option>
+            <option>Custom Topic</option>
+          </select>
+        </div>
+
+        <div class="field full">
+          <label for="speaker-message">Tell me about the event and what you want the audience to take away</label>
+          <textarea id="speaker-message" name="message" required></textarea>
+        </div>
+
+      </div>
+
+      <input type="hidden" name="source" value="Rada Talks Speaking Inquiry">
+
+      <button class="btn primary" type="submit">
+        Submit Speaking Inquiry →
+      </button>
+
+      <p class="form-note">
+        Speaking inquiries are reviewed directly for Rada Talks and are separate from financial planning consultations.
+      </p>
+
+      <div class="form-status" role="status" aria-live="polite"></div>
+    </form>
+  </div>
+</div>
+  
   <div class="form-modal" id="consultation-modal" role="dialog" aria-modal="true" aria-labelledby="consultation-title">
     <div class="form-shell">
       <button class="form-close" type="button" data-close-form aria-label="Close consultation form">×</button>
@@ -371,66 +522,68 @@
     const header=document.querySelector("header"),menu=document.querySelector(".menu"),links=document.querySelector("nav ul");
     const FORM_ENDPOINTS={
   consultation:"https://script.google.com/macros/s/AKfycbzwOHp26vt_C_yEmJMUoEAsqiwetbKWPINrqfhI2n8nle-4qcWsEzU5Et_4nySlfbRHXg/exec",
-  guest:""
+  speaking:"https://script.google.com/macros/s/AKfycbzwOHp26vt_C_yEmJMUoEAsqiwetbKWPINrqfhI2n8nle-4qcWsEzU5Et_4nySlfbRHXg/exec",
+  guest:"https://script.google.com/macros/s/AKfycbzwOHp26vt_C_yEmJMUoEAsqiwetbKWPINrqfhI2n8nle-4qcWsEzU5Et_4nySlfbRHXg/exec"
 };
     addEventListener("scroll",()=>header.classList.toggle("scrolled",scrollY>20),{passive:true});
     menu.addEventListener("click",()=>{const open=links.classList.toggle("open");menu.setAttribute("aria-expanded",open);document.body.classList.toggle("open",open)});
     links.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{links.classList.remove("open");menu.setAttribute("aria-expanded","false");document.body.classList.remove("open")}));
     const closeForms=()=>{document.querySelectorAll(".form-modal.active").forEach(modal=>modal.classList.remove("active"));document.body.classList.remove("open")};
-    document.querySelectorAll("[data-open-form]").forEach(trigger=>trigger.addEventListener("click",event=>{event.preventDefault();closeForms();const modal=document.getElementById(`${trigger.dataset.openForm}-modal`);modal.classList.add("active");document.body.classList.add("open");modal.querySelector("input,select,textarea").focus()}));
+    document.querySelectorAll("[data-open-form]").forEach(trigger=>trigger.addEventListener("click",event=>{event.preventDefault();closeForms();const modal=document.getElementById(`${trigger.dataset.openForm}-modal`);modal.classList.add("active");document.body.classList.add("open");modal.querySelector("input,select,textarea,a.btn")?.focus()}));
     document.querySelectorAll("[data-close-form]").forEach(button=>button.addEventListener("click",closeForms));
     document.querySelectorAll(".form-modal").forEach(modal=>modal.addEventListener("click",event=>{if(event.target===modal)closeForms()}));
     addEventListener("keydown",event=>{if(event.key==="Escape")closeForms()});
-   document.querySelectorAll("[data-lead-form]").forEach(form => form.addEventListener("submit", async event => {
-  event.preventDefault();
+  document.querySelectorAll("[data-lead-form]").forEach(form => 
+  form.addEventListener("submit", async event => {
 
-  const status = form.querySelector(".form-status");
-  const endpoint = FORM_ENDPOINTS[form.dataset.leadForm];
+    event.preventDefault();
 
-  status.classList.add("show");
+    const status = form.querySelector(".form-status");
+    const formType = form.dataset.leadForm;
+    const endpoint = FORM_ENDPOINTS[formType];
 
-  if (!endpoint) {
-    status.textContent = "This form is not connected yet. Please try again shortly.";
-    return;
-  }
+    status.classList.add("show");
 
-  const formData = new FormData(form);
+    if (!endpoint) {
+      status.textContent = "This form is not connected yet. Please try again shortly.";
+      return;
+    }
 
-  const payload = {
-    firstName: formData.get("first_name") || "",
-    lastName: formData.get("last_name") || "",
-    email: formData.get("email") || "",
-    mobile: formData.get("phone") || "",
-    interest: formData.get("topic") || "",
-    city: formData.get("location") || "",
-    contactTime: formData.get("preferred_time") || "",
-    goal: formData.get("message") || "",
-    source: formData.get("source") || "Rada Talks Website"
-  };
+    const payload = Object.fromEntries(new FormData(form));
+    payload.formType = formType;
 
-  const button = form.querySelector('button[type="submit"]');
-  button.disabled = true;
-  status.textContent = "Submitting...";
+    const button = form.querySelector('button[type="submit"]');
+    button.disabled = true;
+    status.textContent = "Submitting...";
 
-  try {
-    await fetch(endpoint, {
-      method: "POST",
-      mode: "no-cors",
-      headers: {
-        "Content-Type": "text/plain;charset=utf-8"
-      },
-      body: JSON.stringify(payload)
-    });
+    try {
+      await fetch(endpoint, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8"
+        },
+        body: JSON.stringify(payload)
+      });
 
-    status.textContent = "Thank you. Your consultation request has been received. We’ll be in touch soon.";
-    form.reset();
+      form.reset();
 
-  } catch (error) {
-    console.error(error);
-    status.textContent = "We couldn't submit your form right now. Please try again shortly.";
-  } finally {
-    button.disabled = false;
-  }
+      if (formType === "consultation") {
+        status.textContent = "Thank you. Your consultation request has been received. We’ll be in touch soon.";
+      } else if (formType === "speaking") {
+        status.textContent = "Thank you. Your speaking inquiry has been received.";
+      } else if (formType === "guest") {
+        status.textContent = "Thank you. Your podcast guest application has been received.";
+      }
+
+    } catch (error) {
+      console.error(error);
+      status.textContent = "We couldn't submit your form right now. Please try again shortly.";
+    } finally {
+      button.disabled = false;
+    }
+  })
+);
 }));
     const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");observer.unobserve(e.target)}}),{threshold:.12});
     document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
