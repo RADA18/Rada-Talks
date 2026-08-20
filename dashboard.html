@@ -6,11 +6,14 @@
 <meta name="robots" content="noindex,nofollow,noarchive">
 <title>Rada Talks | Lead Dashboard</title>
 <style>
-:root{--black:#070707;--panel:#111;--gold:#d5ae43;--light:#f4d77e;--cream:#f5f0e5;--muted:#aaa297;--line:rgba(213,174,67,.25)}
+:root{--black:#070707;--panel:#111;--panel-2:#171512;--gold:#d5ae43;--light:#f4d77e;--cream:#f5f0e5;--muted:#aaa297;--line:rgba(213,174,67,.25);--success:#8fd19e}
 *{box-sizing:border-box}body{margin:0;background:var(--black);color:var(--cream);font:15px/1.6 Inter,Segoe UI,Arial,sans-serif}
 .wrap{width:min(1400px,calc(100% - 32px));margin:auto}.top{display:flex;justify-content:space-between;align-items:center;padding:28px 0;border-bottom:1px solid var(--line)}
 h1,h2{font-family:Georgia,serif;font-weight:500;margin:0}h1{font-size:2.4rem}.gold{color:var(--light)}
-.controls{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0}.controls input,.controls select,.controls button{min-height:44px;padding:8px 12px;border:1px solid var(--line);border-radius:10px;background:#151515;color:#fff}
+.top-actions{display:flex;align-items:center;gap:12px}.access-badge{display:none;padding:7px 11px;border:1px solid var(--line);border-radius:999px;color:var(--light);font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.connection-panel{margin:22px 0;padding:16px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(145deg,#111,#0c0c0c)}
+.connection-title{display:flex;justify-content:space-between;gap:16px;margin-bottom:10px;color:var(--muted);font-size:.78rem}.connection-title strong{color:var(--cream);letter-spacing:.06em;text-transform:uppercase}
+.controls{display:grid;grid-template-columns:minmax(280px,2fr) minmax(180px,1fr) minmax(210px,1.2fr) minmax(170px,.8fr) minmax(190px,.9fr);gap:10px}.controls input,.controls select,.controls button{width:100%;min-height:46px;padding:9px 13px;border:1px solid var(--line);border-radius:10px;background:#151515;color:#fff}
 button{cursor:pointer}.primary{background:linear-gradient(135deg,var(--light),var(--gold));color:#090909!important;font-weight:800}
 .cards{
   display:grid;
@@ -24,37 +27,43 @@ button{cursor:pointer}.primary{background:linear-gradient(135deg,var(--light),va
   min-width:0;
 }.card{padding:20px;border:1px solid var(--line);border-radius:16px;background:var(--panel)}.card b{display:block;color:var(--light);font:2.2rem Georgia,serif}.card small{color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
 .cards.financial-scope{grid-template-columns:repeat(3,minmax(0,1fr))}
-.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:16px;background:#0e0e0e}table{width:100%;border-collapse:collapse;min-width:1050px}th,td{padding:13px;border-bottom:1px solid #1d1d1d;text-align:left;vertical-align:top}th{color:var(--light);font-size:.75rem;text-transform:uppercase;letter-spacing:.07em;position:sticky;top:0;background:#111}td{color:#d8d1c7}td small{color:var(--muted)}.status{border:1px solid var(--line);border-radius:8px;background:#151515;color:#fff;padding:6px}.empty{padding:40px;text-align:center;color:var(--muted)}
-@media(max-width:1000px){.cards{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:800px){.cards{grid-template-columns:1fr 1fr}.top{align-items:flex-start;gap:15px;flex-direction:column}}
+.message{min-height:24px;margin:4px 0 14px;color:var(--muted)}.message.success{color:var(--success)}.scroll-note{margin:0 0 8px;color:var(--muted);font-size:.76rem}
+.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:16px;background:#0e0e0e;scrollbar-color:var(--gold) #161616}table{width:100%;border-collapse:collapse;min-width:1520px;table-layout:fixed}th,td{padding:14px;border-bottom:1px solid #24211d;text-align:left;vertical-align:top}th{color:var(--light);font-size:.7rem;text-transform:uppercase;letter-spacing:.07em;position:sticky;top:0;z-index:2;background:#111}tbody tr:hover{background:rgba(213,174,67,.035)}td{color:#d8d1c7;overflow-wrap:anywhere}td small{display:block;margin-top:5px;color:var(--muted)}
+th:nth-child(1){width:125px}th:nth-child(2){width:130px}th:nth-child(3){width:155px}th:nth-child(4){width:220px}th:nth-child(5){width:185px}th:nth-child(6){width:260px}th:nth-child(7){width:165px}th:nth-child(8){width:155px}th:nth-child(9){width:210px}th:nth-child(10){width:190px}th:nth-child(11){width:95px}
+.type-pill{display:inline-flex;padding:4px 8px;border:1px solid var(--line);border-radius:999px;background:rgba(213,174,67,.08);color:var(--light);font-size:.72rem;font-weight:800}.lead-message{white-space:pre-line}.table-wrap input,.table-wrap textarea,.table-wrap select{width:100%;min-height:42px;padding:8px 10px;border:1px solid var(--line);border-radius:9px;background:var(--panel-2);color:#fff;font:inherit}.table-wrap textarea{min-height:76px;resize:vertical}.table-wrap input:focus,.table-wrap textarea:focus,.table-wrap select:focus{border-color:var(--gold);outline:none}.save-lead{width:100%;min-height:42px;border:0;border-radius:9px}.empty{padding:48px;text-align:center;color:var(--muted)}
+@media(max-width:1100px){.controls{grid-template-columns:1fr 1fr}.cards{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:800px){.wrap{width:min(100% - 20px,1400px)}.cards,.cards.financial-scope{grid-template-columns:1fr 1fr}.top{align-items:flex-start;gap:15px;flex-direction:column}.top-actions{width:100%;justify-content:space-between}.controls{grid-template-columns:1fr}.connection-title{display:block}.connection-title span{display:block;margin-top:4px}.card{padding:16px}.card b{font-size:1.8rem}}
 </style>
 </head>
 <body>
 <div class="wrap">
   <header class="top">
     <div><div class="gold">RADA TALKS</div><h1>Lead <span class="gold">Dashboard</span></h1></div>
-    <button id="refresh" class="primary">Refresh</button>
+    <div class="top-actions"><span class="access-badge" id="access-badge"></span><button id="refresh" class="primary">Refresh</button></div>
   </header>
 
-  <div class="controls">
-    <input id="endpoint" placeholder="Apps Script Web App URL" style="min-width:360px">
-    <input id="key" type="password" placeholder="Admin key" style="min-width:220px">
-    <input id="search" placeholder="Search name, email, topic...">
-    <select id="type">
-      <option value="">All forms</option>
-      <option value="consultation">Consultations</option>
-      <option value="speaking">Speaking inquiries</option>
-      <option value="guest">Podcast guests</option>
-    </select>
-    <select id="status">
-      <option value="">All statuses</option>
-      <option>New</option>
-      <option>Contacted</option>
-      <option>In Progress</option>
-      <option>Qualified</option>
-      <option>Won</option>
-      <option>Closed - Not Proceeding</option>
-    </select>
+  <div class="connection-panel">
+    <div class="connection-title"><strong>Dashboard connection</strong><span>Your connection is saved only in this browser.</span></div>
+    <div class="controls">
+      <input id="endpoint" placeholder="Apps Script Web App URL" aria-label="Apps Script Web App URL">
+      <input id="key" type="password" placeholder="Admin key" aria-label="Admin key">
+      <input id="search" placeholder="Search leads..." aria-label="Search leads">
+      <select id="type" aria-label="Filter by form type">
+        <option value="">All forms</option>
+        <option value="consultation">Consultations</option>
+        <option value="speaking">Speaking inquiries</option>
+        <option value="guest">Podcast guests</option>
+      </select>
+      <select id="status" aria-label="Filter by status">
+        <option value="">All statuses</option>
+        <option>New</option>
+        <option>Contacted</option>
+        <option>In Progress</option>
+        <option>Qualified</option>
+        <option>Won</option>
+        <option>Closed - Not Proceeding</option>
+      </select>
+    </div>
   </div>
 
   <section class="cards">
@@ -65,7 +74,8 @@ button{cursor:pointer}.primary{background:linear-gradient(135deg,var(--light),va
     <div class="card"><b id="guests">0</b><small>Guest applications</small></div>
   </section>
 
-  <div id="message" style="color:var(--muted);margin-bottom:15px"></div>
+  <div id="message" class="message" role="status" aria-live="polite"></div>
+  <p class="scroll-note">Tip: scroll sideways inside the table to view follow-up fields and the Save button.</p>
   <div class="table-wrap"><table><thead><tr>
     <th>Date</th>
 <th>Type</th>
@@ -101,6 +111,16 @@ function formatDate(value) {
   });
 
 }
+function formatDateOnly(value){
+ if(!value)return "";
+ const d=new Date(value);
+ return Number.isNaN(d.getTime())?String(value):d.toLocaleDateString("en-PH",{year:"numeric",month:"short",day:"numeric"});
+}
+function formatLeadMessage(value){
+ return String(value||"").replace(/Event date:\s*([^|]+)/i,function(match,rawDate){
+   return "Event date: "+formatDateOnly(rawDate.trim());
+ });
+}
 function esc(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]))}
 function formTypeLabel(value){return ({consultation:"Consultation",speaking:"Speaking inquiry",guest:"Podcast guest"})[value]||value||"Uncategorized"}
 function applyAccessScope(){
@@ -111,6 +131,9 @@ function applyAccessScope(){
  document.querySelector(".cards").classList.toggle("financial-scope",financialOnly);
  $("speaking").closest(".card").hidden=financialOnly;
  $("guests").closest(".card").hidden=financialOnly;
+ const badge=$("access-badge");
+ badge.textContent=financialOnly?"Financial access":"Rada private access";
+ badge.style.display="inline-flex";
 }
 function save(){localStorage.setItem("radaEndpoint",$("endpoint").value.trim());localStorage.setItem("radaAdminKey",$("key").value)}
 function filtered(){
@@ -129,14 +152,14 @@ function render(){
  $("guests").textContent=leads.filter(x=>x.form_type==="guest").length;
  $("rows").innerHTML=f.length?f.map((x,i)=>`<tr>
  <td>${esc(formatDate(x.date))}</td>
- <td>${esc(formTypeLabel(x.form_type))}</td>
+ <td><span class="type-pill">${esc(formTypeLabel(x.form_type))}</span></td>
  <td><b>${esc(x.name)}</b><br><small>${esc(x.location)}</small></td>
  <td>${esc(x.email)}<br>${esc(x.phone)}</td>
 <td>
   ${esc(x.topic)}<br>
-  <small>Preferred contact: ${esc(x.preferred_time)}</small>
+  ${x.preferred_time?`<small>${x.form_type==="speaking"?"Event date":"Preferred contact"}: ${esc(x.form_type==="speaking"?formatDateOnly(x.preferred_time):x.preferred_time)}</small>`:""}
 </td>
- <td>${esc(x.message)}</td>
+ <td class="lead-message">${esc(formatLeadMessage(x.message))}</td>
 
 <td>
   <input
