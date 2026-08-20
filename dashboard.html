@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
 <title>Rada Talks | Lead Dashboard</title>
 <style>
 :root{--black:#070707;--panel:#111;--gold:#d5ae43;--light:#f4d77e;--cream:#f5f0e5;--muted:#aaa297;--line:rgba(213,174,67,.25)}
@@ -13,7 +14,7 @@ h1,h2{font-family:Georgia,serif;font-weight:500;margin:0}h1{font-size:2.4rem}.go
 button{cursor:pointer}.primary{background:linear-gradient(135deg,var(--light),var(--gold));color:#090909!important;font-weight:800}
 .cards{
   display:grid;
-  grid-template-columns:repeat(4,minmax(0,1fr));
+  grid-template-columns:repeat(5,minmax(0,1fr));
   gap:16px;
   margin:20px 0;
   align-items:stretch;
@@ -22,7 +23,9 @@ button{cursor:pointer}.primary{background:linear-gradient(135deg,var(--light),va
 .card{
   min-width:0;
 }.card{padding:20px;border:1px solid var(--line);border-radius:16px;background:var(--panel)}.card b{display:block;color:var(--light);font:2.2rem Georgia,serif}.card small{color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.cards.financial-scope{grid-template-columns:repeat(3,minmax(0,1fr))}
 .table-wrap{overflow:auto;border:1px solid var(--line);border-radius:16px;background:#0e0e0e}table{width:100%;border-collapse:collapse;min-width:1050px}th,td{padding:13px;border-bottom:1px solid #1d1d1d;text-align:left;vertical-align:top}th{color:var(--light);font-size:.75rem;text-transform:uppercase;letter-spacing:.07em;position:sticky;top:0;background:#111}td{color:#d8d1c7}td small{color:var(--muted)}.status{border:1px solid var(--line);border-radius:8px;background:#151515;color:#fff;padding:6px}.empty{padding:40px;text-align:center;color:var(--muted)}
+@media(max-width:1000px){.cards{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:800px){.cards{grid-template-columns:1fr 1fr}.top{align-items:flex-start;gap:15px;flex-direction:column}}
 </style>
 </head>
@@ -37,14 +40,28 @@ button{cursor:pointer}.primary{background:linear-gradient(135deg,var(--light),va
     <input id="endpoint" placeholder="Apps Script Web App URL" style="min-width:360px">
     <input id="key" type="password" placeholder="Admin key" style="min-width:220px">
     <input id="search" placeholder="Search name, email, topic...">
-    <select id="type"><option value="">All forms</option><option value="consultation">Consultations</option><option value="guest">Podcast guests</option></select>
-    <select id="status"><option value="">All statuses</option><option>New</option><option>Contacted</option><option>Qualified</option><option>Closed</option></select>
+    <select id="type">
+      <option value="">All forms</option>
+      <option value="consultation">Consultations</option>
+      <option value="speaking">Speaking inquiries</option>
+      <option value="guest">Podcast guests</option>
+    </select>
+    <select id="status">
+      <option value="">All statuses</option>
+      <option>New</option>
+      <option>Contacted</option>
+      <option>In Progress</option>
+      <option>Qualified</option>
+      <option>Won</option>
+      <option>Closed - Not Proceeding</option>
+    </select>
   </div>
 
   <section class="cards">
     <div class="card"><b id="total">0</b><small>Total leads</small></div>
     <div class="card"><b id="new">0</b><small>New</small></div>
     <div class="card"><b id="consult">0</b><small>Consultations</small></div>
+    <div class="card"><b id="speaking">0</b><small>Speaking inquiries</small></div>
     <div class="card"><b id="guests">0</b><small>Guest applications</small></div>
   </section>
 
@@ -67,6 +84,7 @@ button{cursor:pointer}.primary{background:linear-gradient(135deg,var(--light),va
 <script>
 const $=id=>document.getElementById(id);
 let leads=[];
+let accessScope="";
 $("endpoint").value=localStorage.getItem("radaEndpoint")||"";
 $("key").value=localStorage.getItem("radaAdminKey")||"";
 function formatDate(value) {
@@ -84,6 +102,16 @@ function formatDate(value) {
 
 }
 function esc(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]))}
+function formTypeLabel(value){return ({consultation:"Consultation",speaking:"Speaking inquiry",guest:"Podcast guest"})[value]||value||"Uncategorized"}
+function applyAccessScope(){
+ const financialOnly=accessScope==="financial";
+ const typeFilter=$("type");
+ typeFilter.value=financialOnly?"consultation":"";
+ typeFilter.hidden=financialOnly;
+ document.querySelector(".cards").classList.toggle("financial-scope",financialOnly);
+ $("speaking").closest(".card").hidden=financialOnly;
+ $("guests").closest(".card").hidden=financialOnly;
+}
 function save(){localStorage.setItem("radaEndpoint",$("endpoint").value.trim());localStorage.setItem("radaAdminKey",$("key").value)}
 function filtered(){
  const q=$("search").value.toLowerCase(), t=$("type").value, s=$("status").value;
@@ -97,10 +125,11 @@ function render(){
  $("total").textContent=leads.length;
  $("new").textContent=leads.filter(x=>(x.status||"New")==="New").length;
  $("consult").textContent=leads.filter(x=>x.form_type==="consultation").length;
+ $("speaking").textContent=leads.filter(x=>x.form_type==="speaking").length;
  $("guests").textContent=leads.filter(x=>x.form_type==="guest").length;
  $("rows").innerHTML=f.length?f.map((x,i)=>`<tr>
  <td>${esc(formatDate(x.date))}</td>
- <td>${esc(x.form_type)}</td>
+ <td>${esc(formTypeLabel(x.form_type))}</td>
  <td><b>${esc(x.name)}</b><br><small>${esc(x.location)}</small></td>
  <td>${esc(x.email)}<br>${esc(x.phone)}</td>
 <td>
@@ -180,6 +209,7 @@ async function saveLead(index, button) {
   const payload = {
     action: "updateLead",
     key: key,
+    formType: lead.form_type,
     rowNumber: lead.rowNumber,
     assignedAdvisor: advisor ? advisor.value.trim() : "",
     followUpDate: followup ? followup.value : "",
@@ -225,16 +255,19 @@ if (!data.success) {
   throw new Error(data.error || "Unable to load");
 }
 
+accessScope = data.scope || "financial";
+applyAccessScope();
+
 leads = (data.leads || []).map(x => ({
   date: x.date,
-  form_type: "consultation",
-  name: [x.firstName || "", x.lastName || ""].join(" ").trim(),
+  form_type: x.form_type || x.formType || x.type || "consultation",
+  name: x.name || [x.firstName || "", x.lastName || ""].join(" ").trim(),
   email: x.email || "",
-  phone: x.mobile || "",
-  topic: x.interest || "",
-  location: x.city || "",
-  preferred_time: x.contactTime || "",
-  message: x.goal || "",
+  phone: x.phone || x.mobile || "",
+  topic: x.topic || x.interest || "",
+  location: x.location || x.city || "",
+  preferred_time: x.preferredTime || x.preferred_time || x.contactTime || "",
+  message: x.message || x.goal || "",
   rowNumber: x.rowNumber,
   followUpDate: x.followUpDate ? String(x.followUpDate).slice(0,10) : "",
   notes: x.notes || "",
