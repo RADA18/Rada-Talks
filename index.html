@@ -38,7 +38,7 @@
 .brand strong span{
     color:var(--gold);
 }
-    .brand img{width:64px;height:64px;border-radius:50%;object-fit:cover}
+    .brand img{width:64px;height:64px;object-fit:contain;filter:drop-shadow(0 0 12px rgba(213,174,67,.18))}
     nav ul{display:flex;align-items:center;gap:1.25rem;margin:0;padding:0;list-style:none}nav a:not(.btn){font-size:.92rem;font-weight:700}nav .btn{min-height:43px;padding:.6rem 1rem}.menu{display:none;width:44px;height:44px;border:1px solid var(--line);border-radius:50%;background:none;color:#fff}.menu span{display:block;width:19px;height:1px;margin:5px auto;background:currentColor}
     .hero{position:relative;display:grid;min-height:100vh;align-items:center;padding:9rem 0 5rem;background:radial-gradient(circle at 15% 15%,rgba(213,174,67,.1),transparent 30rem)}.hero-grid{display:grid;align-items:center;gap:4rem;grid-template-columns:1.08fr .92fr}.hero h1 span{display:block}.hero-copy>p{max-width:650px;color:var(--muted);font-size:1.08rem}.roles{color:var(--light);font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
     .hero-photo{position:relative;overflow:hidden;height:620px;border:1px solid var(--line);border-radius:230px 230px 24px 24px;background:#151515;box-shadow:0 30px 70px #000}.hero-photo:after{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.75),transparent 40%);content:""}.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:52% 28%}.photo-caption{position:absolute;z-index:2;right:2rem;bottom:2rem;left:2rem}.photo-caption strong{display:block;font-family:Georgia,serif;font-size:1.5rem}.photo-caption small{color:var(--light);letter-spacing:.1em;text-transform:uppercase}
@@ -171,7 +171,7 @@
   <header id="header">
     <div class="container nav">
       <a class="brand" href="#home">
-    <img src="logo.png" alt="Rada Talks RT logo">
+    <img src="rada-talks-logo-web.png" alt="Rada Talks RT logo" width="512" height="512">
     <strong>Rada&nbsp;<span>Talks</span></strong>
 </a>
       <button class="menu" aria-expanded="false" aria-controls="navlinks" aria-label="Open menu"><span></span><span></span><span></span></button>
@@ -784,7 +784,7 @@
   <footer><div class="container footer-grid">
     <div>
     <a class="brand" href="#home">
-  <img src="logo.png" alt="Rada Talks logo">
+  <img src="rada-talks-logo-web.png" alt="Rada Talks logo" width="512" height="512" loading="lazy" decoding="async">
   <strong>Rada&nbsp;<span>Talks</span></strong>
 </a><p>Real Conversations.<br>Real Growth.<br>Real Impact</p><div class="social">
 
