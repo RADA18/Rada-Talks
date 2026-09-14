@@ -84,8 +84,8 @@
 }
     .brand img{width:64px;height:64px;object-fit:contain;filter:drop-shadow(0 0 12px rgba(213,174,67,.18))}
     nav ul{display:flex;align-items:center;gap:1.25rem;margin:0;padding:0;list-style:none}nav a:not(.btn){font-size:.92rem;font-weight:700}nav .btn{min-height:43px;padding:.6rem 1rem}.menu{display:none;width:44px;height:44px;border:1px solid var(--line);border-radius:50%;background:none;color:#fff}.menu span{display:block;width:19px;height:1px;margin:5px auto;background:currentColor}
-    .hero{position:relative;display:grid;min-height:100vh;align-items:center;padding:9rem 0 5rem;background:radial-gradient(circle at 15% 15%,rgba(213,174,67,.1),transparent 30rem)}.hero-grid{display:grid;align-items:center;gap:4rem;grid-template-columns:1.08fr .92fr}.hero h1 span{display:block}.hero-copy>p{max-width:650px;color:var(--muted);font-size:1.08rem}.roles{color:var(--light);font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
-    .hero-photo{position:relative;overflow:hidden;height:620px;border:1px solid var(--line);border-radius:230px 230px 24px 24px;background:#151515;box-shadow:0 30px 70px #000}.hero-photo:after{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.75),transparent 40%);content:""}.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:52% 28%}.photo-caption{position:absolute;z-index:2;right:2rem;bottom:2rem;left:2rem}.photo-caption strong{display:block;font-family:Georgia,serif;font-size:1.5rem}.photo-caption small{color:var(--light);letter-spacing:.1em;text-transform:uppercase}
+    .hero{position:relative;display:grid;min-height:auto;align-items:center;padding:7.5rem 0 3.5rem;background:radial-gradient(circle at 15% 15%,rgba(213,174,67,.1),transparent 30rem)}.hero-grid{display:grid;align-items:center;gap:4rem;grid-template-columns:1.08fr .92fr}.hero h1{font-size:clamp(3rem,4.6vw,4.4rem)}.hero h1 span{display:block}.hero-copy .actions{margin-top:1.4rem}.hero-copy .intro{margin:1.2rem 0 .6rem}.hero-copy>p{max-width:650px;color:var(--muted);font-size:1.08rem}.roles{color:var(--light);font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
+    .hero-photo{position:relative;overflow:hidden;height:520px;border:1px solid var(--line);border-radius:230px 230px 24px 24px;background:#151515;box-shadow:0 30px 70px #000}.hero-photo:after{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.75),transparent 40%);content:""}.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:52% 28%}.photo-caption{position:absolute;z-index:2;right:2rem;bottom:2rem;left:2rem}.photo-caption strong{display:block;font-family:Georgia,serif;font-size:1.5rem}.photo-caption small{color:var(--light);letter-spacing:.1em;text-transform:uppercase}
     .stats{border-block:1px solid var(--line);background:#0c0c0c}.stats-grid{display:grid;grid-template-columns:repeat(4,1fr)}.stat{padding:2.6rem 1rem;text-align:center}.stat+ .stat{border-left:1px solid var(--line)}.stat b{display:block;color:var(--light);font-family:Georgia,serif;font-size:3rem;font-weight:500;line-height:1}.stat small{color:var(--muted);font-weight:700;letter-spacing:.06em;text-transform:uppercase}
     .chips{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;margin-bottom:2rem}.chips span{padding:.45rem .8rem;border:1px solid var(--line);border-radius:99px;color:#d8d1c7;font-size:.8rem}
     .podcast-showcase{display:grid;overflow:hidden;border:1px solid var(--line);border-radius:24px;background:linear-gradient(135deg,#18150d,#0e0e0e 65%);grid-template-columns:1.05fr .95fr}.podcast-visual{position:relative;display:grid;min-height:390px;place-items:center;overflow:hidden;background:#131313}.podcast-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 28%}.podcast-visual:after{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.35),transparent 55%);content:""}.podcast-visual .play{position:absolute;left:1.5rem;bottom:1.5rem;z-index:2;width:76px;height:76px;background:rgba(9,9,9,.82);font-size:1.2rem}.podcast-copy{display:flex;padding:clamp(2rem,5vw,4rem);justify-content:center;flex-direction:column}.podcast-copy p{color:var(--muted)}.podcast-copy .actions{justify-content:flex-start}
@@ -223,7 +223,7 @@
       <button class="menu" aria-expanded="false" aria-controls="navlinks" aria-label="Open menu"><span></span><span></span><span></span></button>
       <nav aria-label="Main navigation">
         <ul id="navlinks">
-          <li><a href="#home">Home</a></li><li><a href="#about">About</a></li><li><a href="#latest">Latest</a></li><li><a href="#planning">Financial Planning</a></li><li><a href="#speaking">Speaking</a></li><li><a href="#resources">Explore</a></li><li><a href="#contact">Contact</a></li>
+          <li><a href="#home">Home</a></li><li><a href="#latest">Latest</a></li><li><a href="#about">About</a></li><li><a href="#planning">Financial Planning</a></li><li><a href="#speaking">Speaking</a></li><li><a href="#resources">Explore</a></li><li><a href="#contact">Contact</a></li>
           <li><a class="btn primary" href="#consultation-form" data-open-form="consultation">Free Financial Checkup</a></li>
         </ul>
       </nav>
@@ -244,38 +244,8 @@
         <span>Lasting Impact.</span>
       </h1>
 
-      <p class="intro">
-        Hi, I'm
-      </p>
-
-      <h3 class="hero-name">
-        Radaba Polo
-      </h3>
-
-      <p class="hero-title">
-        Head of Operations • Speaker • Host of Rada Talks • Financial Planning Advocate
-      </p>
-
-      <p>
-        I believe the conversations we have can change the way we see ourselves,
-        our choices, and our future.
-      </p>
-
-      <p>
-        Through Rada Talks, I share real stories, leadership lessons, financial
-        insights and experiences from life, career, and business. These
-        conversations help us grow, make wiser decisions, and move forward
-        with purpose.
-      </p>
-
-      <p>
-        My goal is simple: to help you find clarity, build confidence, and create
-        a life that leaves a lasting impact.
-      </p>
-
-      <div class="roles">
-        REAL STORIES • PRACTICAL WISDOM • PURPOSEFUL GROWTH
-      </div>
+      <p class="intro">I'm <strong>Radaba Polo</strong>, operations leader, speaker, and host of Rada Talks.</p>
+      <p>Practical conversations on leadership, career growth, and financial confidence to help you make wiser choices and move forward with purpose.</p>
 
       <div class="actions">
 
@@ -326,6 +296,54 @@
     <small>Facebook Community</small>
   </a>
 </div><div class="stat"><b>15+</b><small>Years Leadership Experience</small></div><div class="stat"><b>REAL</b><small>Conversations</small></div><div class="stat"><b>3S</b><small>Signature Framework</small></div>
+    </div></section>
+
+    <section class="section" id="latest"><div class="container">
+      <div class="heading reveal"><div class="eyebrow">New &amp; Noteworthy</div><h2>Latest from <span class="gold">Rada Talks</span></h2></div>
+      <p class="latest-intro reveal">Fresh conversations, upcoming gatherings, and creative work from Rada and the communities she is building.</p>
+      <div class="latest-grid">
+        <article class="latest-card reveal">
+          <a class="latest-media" href="https://www.youtube.com/watch?v=rLOw_tJK1Z4&amp;t=57s" target="_blank" rel="noopener" aria-label="Watch the featured Rada Talks conversation on YouTube">
+            <span class="portrait-backdrop" aria-hidden="true"></span>
+            <img class="portrait-fit" src="podcast-featured-original.jpg" alt="Rada Polo in the featured Rada Talks conversation about time, family, work, and financial freedom" loading="lazy">
+            <span class="video-badge" aria-hidden="true"><b>▶</b></span>
+          </a>
+          <div class="latest-body">
+            <small class="latest-kicker">Featured Conversation</small>
+            <h3>Time, Family, Work: The Truth About Financial Freedom</h3>
+            <p>An honest conversation about building a meaningful life while navigating work, family, and financial choices.</p>
+            <a class="resource-link" href="https://www.youtube.com/watch?v=rLOw_tJK1Z4&amp;t=57s" target="_blank" rel="noopener">Watch on YouTube <span>→</span></a>
+          </div>
+        </article>
+
+        <article class="latest-card reveal">
+          <div class="latest-media latest-video">
+            <video controls playsinline preload="metadata" poster="rada-speech-highlight-poster.jpg" aria-label="Rada Polo speaking at the Business Opportunity Forum in Makati">
+              <source src="rada-speech-highlight-web.mp4" type="video/mp4">
+              Your browser does not support embedded video.
+            </video>
+          </div>
+          <div class="latest-body">
+            <small class="latest-kicker">Featured Speech</small>
+            <h3>Rada at the Business Opportunity Forum</h3>
+            <div class="latest-details"><span>August 23, 2026</span><span>InLife Makati</span></div>
+            <p>Watch a focused highlight from Rada's talk on opportunity, practical growth, and meaningful possibilities.</p>
+            <a class="resource-link" href="rada-speech-highlight-web.mp4" target="_blank" rel="noopener">Open the speech highlight <span>→</span></a>
+          </div>
+        </article>
+
+        <article class="latest-card reveal">
+          <a class="latest-media" href="https://www.facebook.com/profile.php?id=61590926784854" target="_blank" rel="noopener" aria-label="Visit Jun and Rada Studio on Facebook">
+            <img src="jun-rada-studio-process.jpg" alt="Blue and gold handcrafted mosaic mirror by Jun and Rada Studio" loading="lazy">
+          </a>
+          <div class="latest-body">
+            <small class="latest-kicker">Creative Spotlight</small>
+            <h3>Jun &amp; Rada Studio</h3>
+            <p>See the real materials, careful hands, and creative process behind handcrafted mirrors, mosaic art, and statement décor.</p>
+            <a class="resource-link" href="https://www.facebook.com/profile.php?id=61590926784854" target="_blank" rel="noopener">Visit the studio <span>→</span></a>
+          </div>
+        </article>
+      </div>
     </div></section>
 
     <section class="section" id="about"><div class="container about">
@@ -466,53 +484,6 @@
       <div class="topics reveal"><div class="topic"><b>01</b>Leadership</div><div class="topic"><b>02</b>Business &amp; Operations</div><div class="topic"><b>03</b>Financial Literacy</div><div class="topic"><b>04</b>Personal Development</div><p class="topic-more">Also available: Women's Empowerment, Career Growth, and Resilience.</p></div>
       </div></section>
     
-    <section class="section" id="latest"><div class="container">
-      <div class="heading reveal"><div class="eyebrow">New &amp; Noteworthy</div><h2>Latest from <span class="gold">Rada Talks</span></h2></div>
-      <p class="latest-intro reveal">Fresh conversations, upcoming gatherings, and creative work from Rada and the communities she is building.</p>
-      <div class="latest-grid">
-        <article class="latest-card reveal">
-          <a class="latest-media" href="https://www.youtube.com/watch?v=rLOw_tJK1Z4&amp;t=57s" target="_blank" rel="noopener" aria-label="Watch the featured Rada Talks conversation on YouTube">
-            <span class="portrait-backdrop" aria-hidden="true"></span>
-            <img class="portrait-fit" src="podcast-featured-original.jpg" alt="Rada Polo in the featured Rada Talks conversation about time, family, work, and financial freedom" loading="lazy">
-            <span class="video-badge" aria-hidden="true"><b>▶</b></span>
-          </a>
-          <div class="latest-body">
-            <small class="latest-kicker">Featured Conversation</small>
-            <h3>Time, Family, Work: The Truth About Financial Freedom</h3>
-            <p>An honest conversation about building a meaningful life while navigating work, family, and financial choices.</p>
-            <a class="resource-link" href="https://www.youtube.com/watch?v=rLOw_tJK1Z4&amp;t=57s" target="_blank" rel="noopener">Watch on YouTube <span>→</span></a>
-          </div>
-        </article>
-
-        <article class="latest-card reveal">
-          <div class="latest-media latest-video">
-            <video controls playsinline preload="metadata" poster="rada-speech-highlight-poster.jpg" aria-label="Rada Polo speaking at the Business Opportunity Forum in Makati">
-              <source src="rada-speech-highlight-web.mp4" type="video/mp4">
-              Your browser does not support embedded video.
-            </video>
-          </div>
-          <div class="latest-body">
-            <small class="latest-kicker">Featured Speech</small>
-            <h3>Rada at the Business Opportunity Forum</h3>
-            <div class="latest-details"><span>August 23, 2026</span><span>InLife Makati</span></div>
-            <p>Watch a focused highlight from Rada's talk on opportunity, practical growth, and meaningful possibilities.</p>
-            <a class="resource-link" href="rada-speech-highlight-web.mp4" target="_blank" rel="noopener">Open the speech highlight <span>→</span></a>
-          </div>
-        </article>
-
-        <article class="latest-card reveal">
-          <a class="latest-media" href="https://www.facebook.com/profile.php?id=61590926784854" target="_blank" rel="noopener" aria-label="Visit Jun and Rada Studio on Facebook">
-            <img src="jun-rada-studio-process.jpg" alt="Blue and gold handcrafted mosaic mirror by Jun and Rada Studio" loading="lazy">
-          </a>
-          <div class="latest-body">
-            <small class="latest-kicker">Creative Spotlight</small>
-            <h3>Jun &amp; Rada Studio</h3>
-            <p>See the real materials, careful hands, and creative process behind handcrafted mirrors, mosaic art, and statement décor.</p>
-            <a class="resource-link" href="https://www.facebook.com/profile.php?id=61590926784854" target="_blank" rel="noopener">Visit the studio <span>→</span></a>
-          </div>
-        </article>
-      </div>
-    </div></section>
 
     <section class="section" id="resources"><div class="container">
       <div class="heading reveal"><div class="eyebrow">Resources &amp; Channels</div><h2>Explore <span class="gold">Rada Talks</span></h2><p>Choose what is most useful to you right now.</p></div>
